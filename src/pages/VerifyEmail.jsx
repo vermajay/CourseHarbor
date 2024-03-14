@@ -20,7 +20,7 @@ const VerifyEmail = () => {
         if(!signUpData){
             navigate("/signup")
         }
-    }, [])
+    }, [navigate, signUpData])
 
     const submitHandler = (event) => {
         event.preventDefault();

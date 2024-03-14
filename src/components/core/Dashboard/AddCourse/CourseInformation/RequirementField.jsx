@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 
 const RequirementField = ({label, id, register, errors, setValue}) => {
+
+    const {course, editCourse} = useSelector((state) => state.course)
 
     const [requirement, setRequirement] = useState(null);
     const [requirementList, setRequirementList] = useState([]);
@@ -20,6 +23,9 @@ const RequirementField = ({label, id, register, errors, setValue}) => {
     }
 
     useEffect(()=>{
+        if(editCourse){
+            setRequirementList(course.instructions)
+        }
         register(id, {required:true});
     }, []);
 

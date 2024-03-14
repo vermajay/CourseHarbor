@@ -1,10 +1,24 @@
 import { useState, useEffect } from 'react';
 import { RxCross2 } from 'react-icons/rx'
+import { useSelector } from 'react-redux';
 
 const ChipInput = ({label, id, placeholder, register, errors, setValue}) => {
 
   const [tag, setTag] = useState(null);
   const [tagList, setTagList] = useState([]);
+
+  const {course, editCourse} = useSelector((state) => state.course)
+  useEffect(() => {
+    if (editCourse) {
+      setTagList(course.tag)
+    }
+    register(id, { required: true, validate: (value) => value.length > 0 })
+  }, [])
+
+  useEffect(()=>{
+    setValue(id, tagList);
+  }, [tagList]);
+
 
   const handleAddTag = () => {
     if(tag){
@@ -18,14 +32,6 @@ const ChipInput = ({label, id, placeholder, register, errors, setValue}) => {
     updatedTagList.splice(index, 1);
     setTagList(updatedTagList);
   }
-
-  useEffect(()=>{
-    register(id, {required:true});
-  }, []);
-
-  useEffect(()=>{
-    setValue(id, tagList);
-  }, [tagList]);
 
   const handleKeyPress = (event) => {
     if(event.key === 'Enter' || event.key == ','){

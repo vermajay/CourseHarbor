@@ -6,7 +6,7 @@ require("dotenv").config();
 exports.createSubSection = async (req, res) => {
     try{
         const {sectionId, title, description} = req.body;
-        const video = req.files.videoFile;
+        const video = req.files.video;
 
         if(!sectionId || !title || !description || !video){
             return res.status(400).json(
@@ -37,7 +37,7 @@ exports.createSubSection = async (req, res) => {
             {
                 success: true,
                 message: "SubSection created successfully",
-                updatedSectionDetails
+                data: updatedSectionDetails
             }
         )
     }
@@ -55,7 +55,7 @@ exports.createSubSection = async (req, res) => {
 
 exports.updateSubSection = async (req, res) => {
     try{
-        const {subSectionId, title, description} = req.body;
+        const {sectionId, subSectionId, title, description} = req.body;
 
         const subSection = await SubSection.findById(subSectionId);
 
@@ -74,8 +74,8 @@ exports.updateSubSection = async (req, res) => {
             subSection.description = description;
         }
 
-        if(req.files && req.files.videoFile !== undefined){
-            const video = req.files.videoFile;
+        if(req.files && req.files.video !== undefined){
+            const video = req.files.video;
             const uploadDetails = await uploadFileToCloudinary(video, process.env.FOLDER_NAME);
             subSection.videoUrl = uploadDetails.secure_url;
             subSection.timeDuration = `${uploadDetails.duration}`;
@@ -83,11 +83,13 @@ exports.updateSubSection = async (req, res) => {
 
         await subSection.save();
 
+        const updatedSection = await Section.findById(sectionId).populate("subSection").exec();
+
         res.status(200).json(
             {
                 success: true,
                 message: "SubSection updated successfully",
-                subSection
+                data: updatedSection,
             }
         )
     }
@@ -116,15 +118,23 @@ exports.deleteSubSection = async (req, res) => {
             )
         }
 
-        await SubSection.findByIdAndDelete(subSectionId);
+        const subSection = await SubSection.findByIdAndDelete(subSectionId);
 
-        const updatedSectionDetails = await Section.findByIdAndUpdate(sectionId, {$pull:{subSection:subSectionId}}, {new:true});
+        if (!subSection) {
+            return res
+              .status(404)
+              .json({ success: false, message: "SubSection not found" })
+        }
+
+        const updatedSectionDetails = await Section.findByIdAndUpdate(sectionId, {$pull:{subSection:subSectionId}}, {new:true})
+        .populate("subSection")
+        .exec();
 
         res.status(200).json(
             {
                 success: true,
                 message: "SubSection deleted successfully",
-                updatedSectionDetails
+                data: updatedSectionDetails
             }
         )
     }

@@ -1,5 +1,6 @@
 const Section = require("../models/Section");
 const Course = require("../models/Course");
+const SubSection = require("../models/SubSection");
 
 exports.createSection = async (req, res) => {
     try{
@@ -16,20 +17,28 @@ exports.createSection = async (req, res) => {
 
         const newSection = await Section.create({sectionName});
 
-        const updatedCourseDetails = await Course.findByIdAndUpdate(courseId, {$push:{courseContent:newSection._id}}, {new:true})
-                                                                        .populate({
-                                                                            path: "courseContent",
-                                                                            populate: {
-                                                                                path: "subSection",
-                                                                            },
-                                                                        })
-                                                                        .exec();
+        const updatedCourse = await Course.findByIdAndUpdate(
+			courseId,
+			{
+				$push: {
+					courseContent: newSection._id,
+				},
+			},
+			{ new: true }
+		)
+			.populate({
+				path: "courseContent",
+				populate: {
+					path: "subSection",
+				},
+			})
+			.exec();
 
         res.status(200).json(
             {
                 success: true,
                 message: "Section created successfully",
-                updatedCourseDetails
+                updatedCourse,
             }
         )
     }
@@ -38,7 +47,7 @@ exports.createSection = async (req, res) => {
         res.status(500).json(
             {
                 success: false,
-                message: "Error in creating section",
+                message: "Internal server error, Error in creating section",
                 error: error.message
             }
         )
@@ -47,9 +56,9 @@ exports.createSection = async (req, res) => {
 
 exports.updateSection = async (req, res) => {
     try{
-        const {sectionName, sectionId} = req.body;
+        const {sectionName, sectionId, courseId} = req.body;
 
-        if(!sectionName || !sectionId){
+        if(!sectionName || !sectionId || !courseId){
             return res.status(400).json(
                 {
                     success: false,
@@ -59,12 +68,18 @@ exports.updateSection = async (req, res) => {
         }
 
         const updatedSection = await Section.findByIdAndUpdate(sectionId, {sectionName}, {new:true});
+        const updatedCourse = await Course.findById(courseId).populate({
+            path: "courseContent",
+            populate: {
+                path: "subSection",
+            },
+        }).exec();
 
         res.status(200).json(
             {
                 success: true,
-                message: "Section updated successfully",
-                updatedSection
+                message: "Section updated successfully-> " + updatedSection,
+                data: updatedCourse
             }
         )
     }
@@ -93,7 +108,16 @@ exports.deleteSection = async (req, res) => {
             )
         }
 
-        await Section.findByIdAndDelete(sectionId);
+        const section = await Section.findByIdAndDelete(sectionId);
+        if(!section) {
+			return res.status(404).json({
+				success:false,
+				message:"Section not Found",
+			})
+		}
+
+        //delete sub section
+        await SubSection.deleteMany({_id: {$in: section.subSection}})
 
         const updatedCourseDetails = await Course.findByIdAndUpdate(courseId, {$pull:{courseContent:sectionId}}, {new:true})
                                                                         .populate({
@@ -103,14 +127,12 @@ exports.deleteSection = async (req, res) => {
                                                                             },
                                                                         })
                                                                         .exec();
-        //but do we actually need to delete the entry from course schema? - auto update ho jata h
-        
 
         res.status(200).json(
             {
                 success: true,
                 message: "Section deleted successfully",
-                updatedCourseDetails
+                data: updatedCourseDetails
             }
         )
     }
@@ -119,7 +141,7 @@ exports.deleteSection = async (req, res) => {
         res.status(500).json(
             {
                 success: false,
-                message: "Error in deleting section",
+                message: "Error in deleting section, Internal Server Error",
                 error: error.message
             }
         )

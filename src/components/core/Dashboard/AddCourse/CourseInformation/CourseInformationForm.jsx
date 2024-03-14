@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux';
-import { categories } from '../../../../../services/apis'
-import { apiConnector } from '../../../../../services/apiConnector'
+import {addCourseDetails, editCourseDetails, fetchCourseCategories} from '../../../../../services/operations/courseDetailsApi'
 import { toast } from 'react-hot-toast';
 import { HiOutlineCurrencyRupee } from 'react-icons/hi'
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import ChipInput from './ChipInput';
-import Upload from './Upload';
+import Upload from '../Upload';
 import RequirementField from './RequirementField';
-import { setStep } from '../../../../../slices/courseSlice';
+import { setStep, setCourse } from '../../../../../slices/courseSlice';
 import IconBtn from '../../../../common/IconBtn'
+import { COURSE_STATUS } from '../../../../../utils/constants';
 
 const CourseInformationForm = () => {
 
@@ -21,34 +21,30 @@ const CourseInformationForm = () => {
         getValues,
         formState: {errors}
     } = useForm();
-
+ 
     const dispatch = useDispatch();
+    const {token} = useSelector((state)=> state.auth);
     const {course, editCourse} = useSelector((state) => state.course);
     const [loading, setLoading] = useState(false);
     const [courseCategories, setCourseCategories] = useState([]);
 
-    const fetchSubLinks = async() => {
-        setLoading(true);
-        try{
-            const result = await apiConnector("GET", categories.CATEGORIES_API);
-            if(result.data.allCategories.length > 0){
-                setCourseCategories(result.data.allCategories);
-            }
-        }
-        catch(error){
-            toast.error("Could not fetch the category list");
-            console.log("Error -> ", error);
-        }
-        setLoading(false);
-    }
 
     useEffect(()=>{
         
-        fetchSubLinks();
+        const getCategories = async() => {
+            setLoading(true);
+            const categories = await fetchCourseCategories();
+            if(categories?.length > 0) {
+                setCourseCategories(categories);
+            }
+            setLoading(false);
+        }
+        getCategories();
 
         if(editCourse){
+            console.log("edit course-> ", course);
             setValue("courseTitle", course.courseName);
-            setValue("courseShortDesc", course.courseShortDesc);
+            setValue("courseShortDesc", course.courseDescription);
             setValue("coursePrice", course.price);
             setValue("courseTags", course.tag);
             setValue("courseBenefits", course.whatYouWillLearn);
@@ -77,36 +73,78 @@ const CourseInformationForm = () => {
             return false;
     }
 
+    //handles next button click 
     const onSubmit = async(data) => {
         
         if(editCourse){
-            const currentValues = getValues();
-            const formData = new FormData();
 
-            formData.append("courseId", course._id);
+            if(isFormUpdated()){
+                const currentValues = getValues();
+                const formData = new FormData();
+        
+                formData.append("courseId", course._id);
+        
+                if(currentValues.courseTitle !== course.courseName){
+                    formData.append("courseName", data.courseTitle);
+                }
+                if(currentValues.courseShortDesc !== course.courseDescription){
+                    formData.append("courseDescription", data.courseShortDesc);
+                }
+                if(currentValues.courseBenefits !== course.whatYouWillLearn){
+                    formData.append("whatYouWillLearn", data.courseBenefits);
+                }
+                if(currentValues.courseCategory._id !== course.category._id){
+                    formData.append("category", data.courseCategory);
+                }
+                if(currentValues.courseRequirements.toString() !== course.instructions.toString()){
+                    formData.append("instructions", JSON.stringify(data.courseRequirements));
+                }
+                if(currentValues.courseTags.toString() !== course.tag.toString()){
+                    formData.append("tag", JSON.stringify(data.courseTags));
+                }
+                if(currentValues.courseImage !== course.thumbnail){
+                    formData.append("thumbnail", data.courseImage);
+                }
 
-            if(currentValues.courseTitle !== course.courseName){
-                formData.append("courseName", data.courseTitle);
+                setLoading(true);
+                const result = await editCourseDetails(formData, token);
+                setLoading(false);
+                if(result) {
+                    dispatch(setStep(2));
+                    dispatch(setCourse(result));
+                }
             }
-            if(currentValues.courseShortDesc !== course.courseDescription){
-                formData.append("courseDescription", data.courseShortDesc);
+            else{
+                toast.error("No changes made so far");
             }
-            if(currentValues.courseBenefits !== course.whatYouWillLearn){
-                formData.append("whatYouWillLearn", data.courseBenefits);
-            }
-            if(currentValues.courseCategory._id !== course.category._id){
-                formData.append("category", data.courseCategory);
-            }
-            if(currentValues.courseRequirements.toString() !== course.instructions.toString()){
-                formData.append("instructions", JSON.stringify(data.courseRequirements));
-            }
-            if(currentValues.courseTags.toString() !== course.tag.toString()){
-                formData.append("tag", JSON.stringify(data.courseTags));
-            }
-            if(currentValues.courseImage !== course.thumbnail){
-                formData.append("thumbnail", data.courseImage);
-            }
+            console.log("PRINTING edited course-> ", result);
+            
+            return;
         }
+        
+        //create a new Course
+        const formData = new FormData();
+        formData.append("courseName", data.courseTitle);
+        formData.append("courseDescription", data.courseShortDesc);
+        formData.append("whatYouWillLearn", data.courseBenefits);
+        formData.append("tag", JSON.stringify(data.courseTags));
+        formData.append("price", data.coursePrice);
+        formData.append("category", data.courseCategory);
+        formData.append("status", COURSE_STATUS.DRAFT);
+        formData.append("instructions", JSON.stringify(data.courseRequirements));
+        formData.append("thumbnail", data.courseImage);
+
+        setLoading(true);
+        console.log("BEFORE add course API call");
+        console.log("PRINTING FORMDATA", formData);
+        const result = await addCourseDetails(formData,token);
+        if(result) {
+            dispatch(setStep(2));
+            dispatch(setCourse(result));
+        }
+        setLoading(false);
+        console.log("PRINTING FORMDATA", formData);
+        console.log("PRINTING result", result);
 
     }
 
@@ -192,9 +230,8 @@ const CourseInformationForm = () => {
                 {...register("courseCategory", {required:true})}
             >
                 <option value="" disabled>Choose a Category</option>
-
                 {
-                    !loading && courseCategories.map((category, index)=>(
+                    !loading && courseCategories?.map((category, index)=>(
                         <option key={index} value={category?._id}>{category?.name}</option>
                     ))
                 }
@@ -226,6 +263,7 @@ const CourseInformationForm = () => {
             register={register}
             errors={errors}
             setValue={setValue}
+            editData={editCourse ? course?.thumbnail : null}
         />
 
         {/* Benefits of the course */}
@@ -260,12 +298,13 @@ const CourseInformationForm = () => {
                 editCourse && (
                     <button
                         onClick={()=>dispatch(setStep(2))}
-                        className='bg-richBlack-300'
+                        disabled={loading}
+                        className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richBlack-300 py-[8px] px-[20px] font-semibold text-richBlack-900`}
                     >
                         Continue Without Saving
                     </button>
                 )
-            }
+            }   
             <IconBtn
                 text={editCourse ? "Save Changes" : "Next"}
                 customClasses={"text-base"}
