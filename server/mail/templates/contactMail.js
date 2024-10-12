@@ -47,7 +47,7 @@ exports.contactMail = (data) => {
     <body>
         <div class="container">
             <a href="https://courseharbor.vercel.app"><img class="logo"
-                    src="https://i.ibb.co/7Xyj3PC/logo.png" alt="CourseHarbor Logo"></a>
+                    src="https://courseharbor.vercel.app/mail_logo.png" alt="CourseHarbor Logo"></a>
             <div class="message">Message from User</div>
             <div class="body">
                 <p>First Name: ${data?.firstname}</p>
