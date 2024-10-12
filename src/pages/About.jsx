@@ -25,7 +25,7 @@ const About = () => {
                 </div>
 
                 <div className='font-medium text-richBlack-300 text-base max-w-[55rem] text-center'>
-                    Studynotion is at the forefront of driving innovation in online education. We're passionate about creating a brighter future by offering cutting-edge courses, leveraging emerging technologies, and nurturing a vibrant learning community.
+                CourseHarbor is at the forefront of driving innovation in online education. We're passionate about creating a brighter future by offering cutting-edge courses, leveraging emerging technologies, and nurturing a vibrant learning community.
                 </div>
 
                 <div className='absolute bottom-24 h-[140px] w-[300px] rounded-full blur-2xl bg-[#F09819]'></div>

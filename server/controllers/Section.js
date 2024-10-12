@@ -120,13 +120,13 @@ exports.deleteSection = async (req, res) => {
         await SubSection.deleteMany({_id: {$in: section.subSection}})
 
         const updatedCourseDetails = await Course.findByIdAndUpdate(courseId, {$pull:{courseContent:sectionId}}, {new:true})
-                                                                        .populate({
-                                                                            path: "courseContent",
-                                                                            populate: {
-                                                                                path: "subSection",
-                                                                            },
-                                                                        })
-                                                                        .exec();
+        .populate({
+            path: "courseContent",
+            populate: {
+                path: "subSection",
+            },
+        })
+        .exec();
 
         res.status(200).json(
             {

@@ -92,7 +92,7 @@ const Footer = () => {
             </div>
 
             <div>
-                Made with <span className='text-[#FF0000]'>❤️</span> Jay Verma © 2023 StudyNotion
+                Made with <span className='text-[#FF0000]'>❤️</span> Jay Verma © 2024 CourseHarbor
             </div>
 
         </div>

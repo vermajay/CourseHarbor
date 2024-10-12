@@ -9,7 +9,7 @@ exports.contactUs = async(req, res) => {
         const {data} = req.body;
         console.log("DATA....-> ", data);
         
-        const mailResponse = await mailSender(email, "Contact mail from StudyNotion User", contactMail(data));
+        const mailResponse = await mailSender(email, "Contact mail from CourseHarbor User", contactMail(data));
         console.log("Email sent successfully", mailResponse);
 
         //return successfull response

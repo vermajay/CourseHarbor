@@ -173,7 +173,7 @@ const Home = () => {
                     </div>
                     <div className='flex flex-col items-start gap-10 w-[40%]'>
                         <p className='font-medium'>
-                            The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
+                            The modern CourseHarbor is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
                         </p>
                         <CTAButton active={true} linkTo={"/signup"}>
                             Learn More
@@ -311,7 +311,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className='font-medium'>
-                        Instructors from around the world teach millions of students on StudyNotion. We provide the tools and skills to teach what you love.
+                        Instructors from around the world teach millions of students on CourseHarbor. We provide the tools and skills to teach what you love.
                     </div>
                     <div>
                         <CTAButton active={true} linkTo={"/signup"}> 

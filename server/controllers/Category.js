@@ -111,14 +111,13 @@ exports.categoryPageDetails = async (req, res) => {
         .populate({
           path: "courses",
           match: { status: "Published" },
-          populate: {
-            path: "instructor",
-        },
+          populate: { path: "instructor" },
         })
         .exec()
       const allCourses = allCategories.flatMap((category) => category.courses)
+
       const mostSellingCourses = allCourses
-        .sort((a, b) => b.sold - a.sold)
+        .sort((a, b) => b.sold - a.sold) //no 'sold' field in courses
         .slice(0, 10)
        // console.log("mostSellingCourses COURSE", mostSellingCourses)
       res.status(200).json({

@@ -15,7 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import DashboardDefault from "./components/core/Dashboard/DashboardDefault";
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
-import Cart from "./components/core/Dashboard/Cart/Cart";
+import Cart from "./components/core/Dashboard/Cart";
 import Settings from "./components/core/Dashboard/Settings/Settings";
 import { ACCOUNT_TYPE } from "./utils/constants";
 import { useSelector } from "react-redux";

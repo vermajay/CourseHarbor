@@ -153,7 +153,7 @@ exports.verifySignature = async(req, res) => {
             //send the mail to the user
             const emailResponse = await mailSender(
                 enrolledCourse.email,
-                "Congratulations from StudyNotion",
+                "Congratulations from CourseHarbor!",
                 courseEnrollmentEmail(enrolledCourse.courseName, `${enrolledStudent.firstName} ${enrolledStudent.lastName}`)
             );
 

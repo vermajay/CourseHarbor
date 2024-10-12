@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, matchPath } from "react-router-dom";
 import { NavbarLinks } from "../../data/navbar-links";
-import StudyNotionLogo from "../../assets/Logo/Logo-Full-Light.png";
+import CourseHarborLogo from "../../assets/Logo/Logo-Full-Light.png";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -45,7 +45,7 @@ const Navbar = () => {
     <div className="h-14 border-b border-richBlack-700">
       <div className="flex w-11/12 h-full max-w-maxContent items-center justify-between mx-auto">
         <Link to={"/"}>
-          <img src={StudyNotionLogo} alt="logo" height={32} width={160} loading="lazy" />
+          <img src={CourseHarborLogo} alt="logo" height={40} width={170} loading="lazy" />
         </Link>
 
         <nav className="flex gap-7 text-richBlack-25 justify-between">

@@ -28,7 +28,7 @@ const Contact = () => {
                                     Our friendly team is here to help.
                                 </div>
                                 <div className='text-richBlack-200 font-medium text-sm leading-[22px]'>
-                                    info@studynotion.com
+                                    info@courseharbor.com
                                 </div>
                             </div>
                         </div>
