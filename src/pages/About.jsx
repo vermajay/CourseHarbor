@@ -32,9 +32,9 @@ const About = () => {
                 
                 <div className='absolute -bottom-14 flex gap-6'>
 
-                    <img src={aboutus1}/>
-                    <img src={aboutus2}/>
-                    <img src={aboutus3}/>
+                    <img src={aboutus1} alt='aboutus1'/>
+                    <img src={aboutus2} alt='aboutus2'/>
+                    <img src={aboutus3} alt='aboutus3'/>
 
                 </div>
 
@@ -81,7 +81,7 @@ const About = () => {
                             bg-gradient-to-r from-[#EC008C] to-[#FC6767] blur-[100px]'>
                         </div>
 
-                        <img src={FoundingStory} className='object-contain z-0'/>
+                        <img src={FoundingStory} alt='FoundingStory' className='object-contain z-0'/>
 
                     </div>
 

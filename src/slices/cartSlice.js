@@ -38,16 +38,18 @@ const cartSlice = createSlice({
         },
 
         removeFromCart: (state, action) => {
+
             const courseId = action.payload;
             const index = state.cart.findIndex((item) => item._id === courseId);
 
             if(index >= 0){
                 // If the course is found in the cart, remove it from cart
-                state.cart.splice(index, 1);
-
+                
                 //update the total quantity and price
                 state.totalItems--;
                 state.total -= state.cart[index].price;
+
+                state.cart.splice(index, 1);
 
                 //update to local storage
                 localStorage.setItem("cart", JSON.stringify(state.cart));

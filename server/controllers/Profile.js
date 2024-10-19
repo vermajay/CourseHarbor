@@ -2,6 +2,8 @@ const Profile = require("../models/Profile");
 const User = require("../models/User");
 const Course = require("../models/Course");
 const {uploadFileToCloudinary} = require("../utils/fileUploader");
+const { convertSecondsToDuration } = require("../utils/secToDuration");
+const CourseProgress = require("../models/CourseProgress");
 require("dotenv").config();
 
 exports.updateProfile = async(req,res) => {
@@ -156,28 +158,102 @@ exports.updateDisplayPicture = async(req,res) => {
     }
 }
 
-exports.getEnrolledCourses = async(req,res) => {
-    try{
-        const userId = req.user.id;
+//it returns the courses data along with their totalDuration and progressPercentage
+exports.getEnrolledCourses = async (req, res) => {
+	try {
+	  const userId = req.user.id
+	  let userDetails = await User.findOne({
+		_id: userId,
+	  })
+		.populate({
+		  path: "courses",
+		  populate: {
+			path: "courseContent",
+			populate: {
+			  path: "subSection",
+			},
+		  },
+		})
+		.exec()
 
-        const userDetails = await User.findById(userId).populate("courses").exec();
+	  userDetails = userDetails.toObject()
+	  var SubsectionLength = 0 //it will store total subsections to be later used to calculate progressPercentage
+      
+      //traverse all courses
+	  for (var i = 0; i < userDetails.courses.length; i++) {
+		
+		let totalDurationInSeconds = 0
+		SubsectionLength = 0
 
-        if(!userDetails){
-            return res.status(400).json({
-                success: false,
-                message: `Could not find user with id: ${userId}`
-            })
+        //calculate totalDuration
+		for (var j = 0; j < userDetails.courses[i].courseContent.length; j++) { //traverse all sections
+
+		  totalDurationInSeconds += userDetails.courses[i].courseContent[j].subSection.reduce((acc, curr) => acc + parseInt(curr.timeDuration), 0)
+		  userDetails.courses[i].totalDuration = convertSecondsToDuration(totalDurationInSeconds)
+
+		  SubsectionLength += userDetails.courses[i].courseContent[j].subSection.length //add the subsection count
+		}
+
+
+        //calculate progressPercentage
+		let courseProgress = await CourseProgress.findOne({
+		  courseID: userDetails.courses[i]._id,
+		  userId: userId,
+		})
+		let courseProgressCount = courseProgress?.completedVideos.length //no of completed subsections
+		if (SubsectionLength === 0) {userDetails.courses[i].progressPercentage = 100}   //if course has no videos
+        else {
+		  // To make it up to 2 decimal point
+		  const multiplier = Math.pow(10, 2)
+
+		  userDetails.courses[i].progressPercentage = 
+            Math.round((courseProgressCount / SubsectionLength) * 100 * multiplier) / multiplier
+		}
+	  }
+  
+	  if (!userDetails) {
+		return res.status(400).json({
+		  success: false,
+		  message: `Could not find user with id: ${userDetails}`,
+		})
+	  }
+	  return res.status(200).json({
+		success: true,
+		data: userDetails.courses,
+	  })
+	} catch (error) {
+	  return res.status(500).json({
+		success: false,
+		message: error.message,
+	  })
+	}
+  }
+
+exports.instructorDashboard = async (req, res) => {
+    try {
+      const courseDetails = await Course.find({ instructor: req.user.id })
+  
+      const courseData = courseDetails.map((course) => {
+        const totalStudentsEnrolled = course.studentsEnrolled.length
+        const totalAmountGenerated = totalStudentsEnrolled * course.price
+  
+        // Create a new object with the additional fields
+        const courseDataWithStats = {
+          _id: course._id,
+          courseName: course.courseName,
+          courseDescription: course.courseDescription,
+          // Include other course properties as needed
+          totalStudentsEnrolled,
+          totalAmountGenerated,
         }
-
-        return res.status(200).json({
-            success: true,
-            data: userDetails.courses,
-        })
+  
+        return courseDataWithStats
+      })
+  
+      res.status(200).json({ courses: courseData })
+    } catch (error) {
+      console.error(error)
+      res.status(500).json({ message: "Server Error" })
     }
-    catch(error){
-        return res.status(500).json({
-            success: false,
-            message: error.message,
-        })
-    }
-}
+  }
+  

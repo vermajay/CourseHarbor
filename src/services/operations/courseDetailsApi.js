@@ -54,7 +54,7 @@ export const fetchCourseDetails = async (courseId) => {
       if (!response?.data?.success) {
         throw new Error(response.data.message)
       }
-      result = response?.data?.data
+      result = response?.data
     } catch (error) {
       console.log("COURSE_DETAILS_API API ERROR............", error)
       toast.error(error?.message);
@@ -378,7 +378,7 @@ export const createRating = async (data, token) => {
   } catch (error) {
     success = false
     console.log("CREATE RATING API ERROR............", error)
-    toast.error(error.message)
+    toast.error(error?.response?.data?.message || error.message)
   }
   toast.dismiss(toastId)
   return success

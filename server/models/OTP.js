@@ -20,16 +20,7 @@ const OTPSchema = new mongoose.Schema(
     }
 );
 
-async function sendVerificationEmail(email, otp){
-    try{
-        const mailResponse = await mailSender(email, "Verification email from CourseHarbor", emailTemplate(otp));
-        console.log("Email sent successfully", mailResponse);
-    }
-    catch(error){
-        console.log("Error while sending mail -> ", error);
-        throw error;
-    }
-}
+
 
 //document save hone se just pehle ham ek verification mail bhejenge with the otp
 //iska matlab OTP.create method call hone se pehle ye function chalega
@@ -45,3 +36,14 @@ OTPSchema.pre("save", async function (next){
 })
 
 module.exports = mongoose.model("OTP", OTPSchema);
+
+async function sendVerificationEmail(email, otp){
+    try{
+        const mailResponse = await mailSender(email, "Verification email from CourseHarbor", emailTemplate(otp));
+        console.log("Email sent successfully", mailResponse);
+    }
+    catch(error){
+        console.log("Error while sending mail -> ", error);
+        throw error;
+    }
+}

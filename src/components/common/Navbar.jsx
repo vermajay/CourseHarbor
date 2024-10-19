@@ -23,10 +23,9 @@ const Navbar = () => {
     setLoading(true);
     try {
       const result = await apiConnector("GET", categories.CATEGORIES_API);
-      console.log("Printing sublinks result: ", result);
       setSubLinks(result.data.allCategories);
     } catch (error) {
-      console.log("Could not fetch the category list");
+      console.log("Navbar, Could not fetch the category list");
       console.log("Error -> ", error);
     }
     setLoading(false);
@@ -139,7 +138,7 @@ const Navbar = () => {
             </Link>
           )}
 
-          {token !== null && <ProfileDropDown />}
+          {token !== null && <ProfileDropDown />} 
         </div>
       </div>
     </div>

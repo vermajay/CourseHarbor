@@ -17,6 +17,7 @@ import KnowYourProgress from '../assets/Images/Know_your_progress.svg'
 import CompareWithOthers from '../assets/Images/Compare_with_others.svg'
 import PlanYourLessons from '../assets/Images/Plan_your_lessons.svg'
 import Instructor from '../assets/Images/Instructor.png'
+import ReviewSlider from '../components/common/ReviewSlider'
 
 const Home = () => {
   return (
@@ -188,7 +189,7 @@ const Home = () => {
 
                         <div className='flex items-center gap-7'>
                             <div className='flex items-center justify-center w-[52px] h-[52px] rounded-full bg-white shadow-[0px_0px_20px_3px_#00000010]'>
-                                <img src={TimeLineLogo1}/>
+                                <img src={TimeLineLogo1} alt="TimeLineLogo1"/>
                             </div>
                             <div>
                                 <p className='font-semibold text-lg text-richBlack-800'>Leadership</p>
@@ -200,7 +201,7 @@ const Home = () => {
 
                         <div className='flex items-center gap-7'>
                             <div className='flex items-center justify-center w-[52px] h-[52px] rounded-full bg-white shadow-[0px_0px_20px_3px_#00000010]'>
-                                <img src={TimeLineLogo2}/>
+                                <img src={TimeLineLogo2} alt="TimeLineLogo2"/>
                             </div>
                             <div>
                                 <p className='font-semibold text-lg text-richBlack-800'>Responsibility</p>
@@ -212,7 +213,7 @@ const Home = () => {
 
                         <div className='flex items-center gap-7'>
                             <div className='flex items-center justify-center w-[52px] h-[52px] rounded-full bg-white shadow-[0px_0px_20px_3px_#00000010]'>
-                                <img src={TimeLineLogo3}/>
+                                <img src={TimeLineLogo3} alt="TimeLineLogo3"/>
                             </div>
                             <div>
                                 <p className='font-semibold text-lg text-richBlack-800'>Flexibility</p>
@@ -224,7 +225,7 @@ const Home = () => {
 
                         <div className='flex items-center gap-7'>
                             <div className='flex items-center justify-center w-[52px] h-[52px] rounded-full bg-white shadow-[0px_0px_20px_3px_#00000010]'>
-                                <img src={TimeLineLogo4}/>
+                                <img src={TimeLineLogo4} alt="TimeLineLogo4"/>
                             </div>
                             <div>
                                 <p className='font-semibold text-lg text-richBlack-800'>Solve the problem</p>
@@ -237,7 +238,7 @@ const Home = () => {
                     <div>
                         <div className='relative shadow-[1px_1px_40px_0px_#118AB2]'>
 
-                            <img className='shadow-[20px_20px_0px_0px_rgb(255,255,255)]' src={TimeLineImage}/>
+                            <img className='shadow-[20px_20px_0px_0px_rgb(255,255,255)]' src={TimeLineImage} alt="TimeLineImage"/>
 
                             <div className='absolute -bottom-14 left-[50%] translate-x-[-50%] bg-caribbeanGreen-700 p-[42px]
                              flex justify-evenly items-center gap-9'>
@@ -270,13 +271,13 @@ const Home = () => {
 
                     <div className='relative h-[470px] w-full'>
                         <div className='absolute left-14 h-[450px] w-[450px]'>
-                            <img src={KnowYourProgress}/>
+                            <img src={KnowYourProgress} alt="KnowYourProgress"/>
                         </div>
                         <div className='absolute -top-14 left-[50%] translate-x-[-50%] h-[550px] w-[500px]'>
-                            <img src={CompareWithOthers}/>
+                            <img src={CompareWithOthers} alt="CompareWithOthers"/>
                         </div>
                         <div className='absolute -top-14 right-10 h-[500px] w-[500px]'>
-                            <img src={PlanYourLessons}/>
+                            <img src={PlanYourLessons} alt="PlanYourLessons"/>
                         </div>
                     </div>
 
@@ -300,7 +301,7 @@ const Home = () => {
             <div className='flex gap-20'>
 
                 <div className='w-[80%]'>
-                    <img className='shadow-[-20px_-20px_0px_0px_rgb(255,255,255)]' src={Instructor}/>
+                    <img className='shadow-[-20px_-20px_0px_0px_rgb(255,255,255)]' src={Instructor} alt="Instructor"/>
                 </div>
 
                 <div className='flex flex-col gap-10 items-start justify-center mr-5'>
@@ -328,6 +329,8 @@ const Home = () => {
             <div>
                 <div className='text-center text-white font-semibold text-4xl leading-[44px]'>Reviews from other learners</div>
             </div>
+
+            <ReviewSlider />
 
         </div>
 

@@ -21,7 +21,7 @@ const MyProfile = () => {
         <div className='flex items-center gap-4'>
 
           <div>
-            <img src={user?.image} className='h-[78px] w-[78px] rounded-full aspect-square object-cover'></img>
+            <img src={user?.image} alt='userImage' className='h-[78px] w-[78px] rounded-full aspect-square object-cover'></img>
           </div>
           <div className='flex flex-col gap-1'>
             <div className='flex items-center font-semibold text-lg'>
