@@ -2,7 +2,6 @@ import React from 'react'
 import HighlightText from '../components/core/HomePage/HighlightText'
 import Stats from '../components/core/AboutPage/Stats'
 import LearningGrid from '../components/core/AboutPage/LearningGrid'
-import ContactFormSection from '../components/core/AboutPage/ContactFormSection'
 import Footer from '../components/common/Footer'
 
 import aboutus1 from '../assets/Images/aboutus1.webp'
@@ -123,7 +122,6 @@ const About = () => {
         <section>
             <div className='w-11/12 flex flex-col items-center gap-40 max-w-maxContent mx-auto py-[90px]'>
                 <LearningGrid/>
-                <ContactFormSection/>
             </div>
         </section>
 

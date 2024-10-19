@@ -43,8 +43,8 @@ exports.courseEnrollmentEmail = (courseName, name) => {
             .cta {
                 display: inline-block;
                 padding: 10px 20px;
-                background-color: #FFD60A;
-                color: #000000;
+                background-color: #02BFDB;
+                color: #ffffff;
                 text-decoration: none;
                 border-radius: 5px;
                 font-size: 16px;

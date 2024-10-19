@@ -1,13 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import {FaArrowRight} from 'react-icons/fa'
 import HighlightText from '../components/core/HomePage/HighlightText'
 import CTAButton from '../components/core/HomePage/CTAButton'
 import CodeBlocks from '../components/core/HomePage/CodeBlocks'
-import ExploreMore from '../components/core/HomePage/ExploreMore'
 import Footer from '../components/common/Footer'
 
-import banner from '../assets/Images/banner.mp4'
 import TimeLineImage from '../assets/Images/TimelineImage.png'
 import TimeLineLogo1 from '../assets/TimeLineLogo/Logo1.svg'
 import TimeLineLogo2 from '../assets/TimeLineLogo/Logo2.svg'
@@ -26,41 +23,14 @@ const Home = () => {
         {/* Section 1 */}
         <div className='relative mx-auto flex flex-col w-11/12 max-w-maxContent items-center 
         text-white justify-between'>
-       
-            <Link to={"/signup"}>
-                <div className='group mt-16 p-1 bg-richBlack-800 rounded-full transition-all duration-200
-                 hover:scale-95 font-bold text-richBlack-200 drop-shadow-[0_2px_rgba(255,255,255,0.25)] hover:drop-shadow-none'>
-                    <div className='flex items-center gap-2 rounded-full px-10 py-[5px] transition-all
-                     duration-200 group-hover:bg-richBlack-900'>
-                        <p>Become an Instructor</p>
-                        <FaArrowRight/>
-                    </div>
-                </div>
-            </Link>
 
-            <div className='text-4xl font-semibold mt-7'>
-                Empower Your Future with <HighlightText text={"Coding Skills"}/>
+            <div className='text-7xl mb-16 mt-24'>
+                <HighlightText text={"Create, sell and buy courses!"}/>
             </div>
 
-            <div className='mt-5 w-[85%] text-center text-lg font-bold text-richBlack-300'>
-            With our online coding courses, you can learn at your own pace, from anywhere in the world, and get access to a wealth of resources, including hands-on projects, quizzes, and personalized feedback from instructors.
-            </div>
-
-            <div className='flex gap-7 mt-14'>
-                <CTAButton active={true} linkTo={"/signup"}>
-                    Learn More
-                </CTAButton>
-                <CTAButton active={false} linkTo={"/login"}>
-                    Book a Demo
-                </CTAButton>
-            </div>
-
-            {/* video */}
-            <div className='mx-3 my-16 shadow-[-3px_-3px_40px_0px_#118AB2]'>
-                <video className='shadow-[20px_20px_0px_0px_rgb(255,255,255)]' autoPlay loop muted>
-                    <source src={banner} type='video/mp4'/>
-                </video>
-            </div>
+            {/* <div className='mt-5 w-[85%] text-center text-3xl font-semibold text-richBlack-300'>
+            Create, sell and buy courses!
+            </div> */}
 
             {/* Code Section 1 */}
             <div>
@@ -136,35 +106,11 @@ const Home = () => {
                 />
             </div>
 
-            <ExploreMore/>
-
         </div>
 
 
         {/* Section 2 */}
         <div className='bg-pureGreys-5 text-richBlack-700'>
-
-            <div className='h-[320px] section2_bg_image'>
-
-                <div className='w-11/12 max-w-maxContent flex flex-col items-center mx-auto gap-5'>
-
-                    <div className='h-[210px]'></div>
-                    
-                    <div className='flex gap-7'>
-                        <CTAButton active={true} linkTo={"/signup"}>
-                            <div className='flex items-center gap-2'>
-                                Explore Full Catalog
-                                <FaArrowRight/>
-                            </div>
-                        </CTAButton>
-                        <CTAButton active={false} linkTo={"/login"}>
-                            Learn More
-                        </CTAButton>
-                    </div>
-
-                </div>
-
-            </div>
 
             <div className='w-11/12 max-w-maxContent mx-auto flex flex-col gap-16 py-[90px]'>
 
