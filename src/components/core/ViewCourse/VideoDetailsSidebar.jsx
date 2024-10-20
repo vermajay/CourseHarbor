@@ -41,14 +41,14 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
 
   return (
     <>
-      <div className="flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richBlack-700 bg-richBlack-800">
-        <div className="mx-5 flex flex-col items-start justify-between gap-2 gap-y-4 border-b border-richBlack-600 py-5 text-lg font-bold text-richBlack-25">
+      <div className="flex h-[calc(100vh-3.5rem)] w-[320px] max-w-[350px] flex-col border-r-[1px] border-r-richBlack-700 bg-[#1F8586]">
+        <div className="mx-5 flex flex-col items-start justify-between gap-2 gap-y-4 border-b border-white py-5 text-lg font-bold text-white">
           <div className="flex w-full items-center justify-between ">
             <div
               onClick={() => {
                 navigate(`/dashboard/enrolled-courses`)
               }}
-              className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-richBlack-100 p-1 text-richBlack-700 hover:scale-90"
+              className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-white p-1 transition-all duration-200 text-black hover:scale-90 cursor-pointer"
               title="back"
             >
               <IoIosArrowBack size={30} />
@@ -61,7 +61,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
           </div>
           <div className="flex flex-col">
             <p>{courseEntireData?.courseName}</p>
-            <p className="text-sm font-semibold text-richBlack-500">
+            <p className="text-sm font-semibold text-white">
               {completedLectures?.length} / {totalNoOfLectures}
             </p>
           </div>
@@ -70,12 +70,12 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
         <div className="h-[calc(100vh - 5rem)] overflow-y-auto">
           {courseSectionData.map((section, index) => (
             <div
-              className="mt-2 cursor-pointer text-sm text-richBlack-5"
+              className="mt-2 cursor-pointer text-sm text-white"
               onClick={() => setActiveStatus(section?._id)}
               key={index}
             >
               {/* Section */}
-              <div className="flex flex-row justify-between bg-richBlack-600 px-5 py-4">
+              <div className="flex flex-row justify-between bg-[#20B486] px-5 py-4">
                 <div className="w-[70%] font-semibold">
                   {section?.sectionName}
                 </div>
@@ -85,7 +85,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                   </span> */}
                   <span
                     className={`${
-                      activeStatus === section?.sectionName
+                      activeStatus === section?._id
                         ? "rotate-0"
                         : "rotate-180"
                     } transition-all duration-500`}
@@ -102,7 +102,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                     <div
                       className={`flex gap-3  px-5 py-2 ${
                         videoBarActive === topic._id
-                          ? "bg-yellow-200 font-semibold text-richBlack-800"
+                          ? "bg-[#0b2d2e] font-semibold text-white"
                           : "hover:bg-richBlack-900"
                       } `}
                       key={i}

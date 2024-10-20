@@ -33,12 +33,9 @@ export default function Instructor() {
   return (
     <div>
       <div className="space-y-2">
-        <h1 className="text-2xl font-bold text-richBlack-5">
+        <h1 className="text-4xl font-bold text-[#208486] mb-8">
           Hi {user?.firstName} 👋
         </h1>
-        <p className="font-medium text-richBlack-200">
-          Let's start something new
-        </p>
       </div>
       {loading ? (
         <div className="spinner"></div>
@@ -49,44 +46,44 @@ export default function Instructor() {
             {totalAmount > 0 || totalStudents > 0 ? (
               <InstructorChart courses={instructorData} />
             ) : (
-              <div className="flex-1 rounded-md bg-richBlack-800 p-6">
-                <p className="text-lg font-bold text-richBlack-5">Visualize</p>
-                <p className="mt-4 text-xl font-medium text-richBlack-50">
+              <div className="flex-1 rounded-md bg-white p-6">
+                <p className="text-lg font-bold text-black">Visualize</p>
+                <p className="mt-4 text-xl font-medium text-black">
                   Not Enough Data To Visualize
                 </p>
               </div>
             )}
             {/* Total Statistics */}
-            <div className="flex min-w-[250px] flex-col rounded-md bg-richBlack-800 p-6">
-              <p className="text-lg font-bold text-richBlack-5">Statistics</p>
+            <div className="flex min-w-[250px] flex-col rounded-md bg-white p-6">
+              <p className="text-lg font-bold text-black">Statistics</p>
               <div className="mt-4 space-y-4">
                 <div>
-                  <p className="text-lg text-richBlack-200">Total Courses</p>
-                  <p className="text-3xl font-semibold text-richBlack-50">
+                  <p className="text-lg text-richBlack-400">Total Courses</p>
+                  <p className="text-3xl font-semibold text-black">
                     {courses.length}
                   </p>
                 </div>
                 <div>
-                  <p className="text-lg text-richBlack-200">Total Students</p>
-                  <p className="text-3xl font-semibold text-richBlack-50">
+                  <p className="text-lg text-richBlack-400">Total Students</p>
+                  <p className="text-3xl font-semibold text-black">
                     {totalStudents}
                   </p>
                 </div>
                 <div>
-                  <p className="text-lg text-richBlack-200">Total Income</p>
-                  <p className="text-3xl font-semibold text-richBlack-50">
+                  <p className="text-lg text-richBlack-400">Total Income</p>
+                  <p className="text-3xl font-semibold text-black">
                     Rs. {totalAmount}
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="rounded-md bg-richBlack-800 p-6">
+          <div className="rounded-md bg-white p-6">
             {/* Render 3 courses */}
             <div className="flex items-center justify-between">
-              <p className="text-lg font-bold text-richBlack-5">Your Courses</p>
+              <p className="text-lg font-bold text-black">Your Courses</p>
               <Link to="/dashboard/my-courses">
-                <p className="text-xs font-semibold text-yellow-50">View All</p>
+                <p className="font-semibold text-[#208486]">View All</p>
               </Link>
             </div>
             <div className="my-4 flex items-start space-x-6">
@@ -98,17 +95,17 @@ export default function Instructor() {
                     className="h-[201px] w-full rounded-md object-cover"
                   />
                   <div className="mt-3 w-full">
-                    <p className="text-sm font-medium text-richBlack-50">
+                    <p className="text-sm font-medium text-black">
                       {course.courseName}
                     </p>
                     <div className="mt-1 flex items-center space-x-2">
-                      <p className="text-xs font-medium text-richBlack-300">
+                      <p className="text-xs font-medium text-richBlack-700">
                         {course.studentsEnrolled.length} students
                       </p>
-                      <p className="text-xs font-medium text-richBlack-300">
+                      <p className="text-xs font-medium text-richBlack-700">
                         |
                       </p>
-                      <p className="text-xs font-medium text-richBlack-300">
+                      <p className="text-xs font-medium text-richBlack-700">
                         Rs. {course.price}
                       </p>
                     </div>
@@ -119,12 +116,12 @@ export default function Instructor() {
           </div>
         </div>
       ) : (
-        <div className="mt-20 rounded-md bg-richBlack-800 p-6 py-20">
-          <p className="text-center text-2xl font-bold text-richBlack-5">
+        <div className="mt-20 rounded-md bg-white p-6 py-20">
+          <p className="text-center text-2xl font-bold text-black">
             You have not created any courses yet
           </p>
           <Link to="/dashboard/add-course">
-            <p className="mt-1 text-center text-lg font-semibold text-yellow-50">
+            <p className="mt-1 text-center text-lg font-semibold text-[#20B486]">
               Create a course
             </p>
           </Link>

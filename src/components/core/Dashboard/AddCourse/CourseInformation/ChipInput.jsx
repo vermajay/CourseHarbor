@@ -48,7 +48,7 @@ const ChipInput = ({label, id, placeholder, register, errors, setValue}) => {
           <div className='flex flex-wrap gap-2 py-1'>
               {
                 tagList.map((tag, index)=>(
-                  <div key={index} className='flex items-center gap-2 px-2 py-[0.15rem] rounded-full bg-yellow-400'>
+                  <div key={index} className='flex items-center gap-2 px-2 py-[0.15rem] rounded-full bg-[#20B486]'>
                       <span>{tag}</span>
                       <button onClick={()=>handleRemoveTag(index)} type='button'>
                         <RxCross2/>
@@ -60,7 +60,7 @@ const ChipInput = ({label, id, placeholder, register, errors, setValue}) => {
         )
       }
       <input
-        className='bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none w-full'
+        className='bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none w-full'
         id={id}
         placeholder={placeholder}
         value={tag}
@@ -69,7 +69,7 @@ const ChipInput = ({label, id, placeholder, register, errors, setValue}) => {
       />
       {
         errors[id] && (
-          <span className='text-xs -mt-1 text-yellow-50'>
+          <span className='text-xs -mt-1 text-[#20B486]'>
             {label} are required
           </span>
         )

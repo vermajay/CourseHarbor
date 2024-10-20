@@ -17,9 +17,9 @@ export default function RenderTotalAmount() {
   }
 
   return (
-    <div className="min-w-[280px] rounded-md border-[1px] border-richBlack-700 bg-richBlack-800 p-6">
-      <p className="mb-1 text-sm font-medium text-richBlack-300">Total:</p>
-      <p className="mb-6 text-3xl font-medium text-yellow-100">₹ {total}</p>
+    <div className="min-w-[280px] rounded-md bg-white p-6">
+      <p className="mb-1 text-sm font-medium text-black">Total:</p>
+      <p className="mb-6 text-3xl font-medium text-[#208486]">₹ {total}</p>
       <IconBtn
         text="Buy Now"
         onclick={handleBuyCourse}

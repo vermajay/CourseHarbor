@@ -88,7 +88,7 @@ const CourseBuilderForm = () => {
   }
 
   return (
-    <div className='rounded-lg border border-richBlack-700 bg-richBlack-800 p-6 w-full space-y-8 text-richBlack-5 text-sm leading-[22px]'>
+    <div className='rounded-lg bg-white p-6 w-full space-y-8 text-black text-sm leading-[22px]'>
       
       <p className='font-semibold text-2xl'>Course Builder</p>
 
@@ -98,7 +98,7 @@ const CourseBuilderForm = () => {
         <div className='flex flex-col gap-2'>
             <label htmlFor='sectionName'>Section Name<sup className='text-pink-200'> *</sup></label>
             <input
-                className='bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
+                className='bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
                 id='sectionName'
                 disabled={loading}
                 placeholder='Add a section to build your course'
@@ -106,7 +106,7 @@ const CourseBuilderForm = () => {
             />
             {
               errors.sectionName && (
-                <span className='text-xs -mt-1 text-yellow-50'>
+                <span className='text-xs -mt-1 text-[#20B486]'>
                   Section name is required
                 </span>
               )
@@ -115,15 +115,15 @@ const CourseBuilderForm = () => {
 
         <div className='flex items-end gap-2 mt-8'>
           {/* create section button */}
-          <button className='flex gap-2 border rounded-lg px-6 py-3 border-yellow-50 w-fit'
+          <button className='flex gap-2 border rounded-lg px-6 py-3 border-[#20B486] w-fit'
           disabled={loading}>
-              <IoMdAddCircleOutline className='text-yellow-50 text-2xl'/>
-              <p className='text-base text-yellow-50 font-medium'>{editSectionName ? "Edit Section Name" : "Create Section"}</p>
+              <IoMdAddCircleOutline className='text-[#20B486] text-2xl'/>
+              <p className='text-base text-[#20B486] font-medium'>{editSectionName ? "Edit Section Name" : "Create Section"}</p>
           </button>
 
           {
             editSectionName && 
-            <div onClick={cancelEdit} className='cursor-pointer text-sm text-richBlack-300 underline'>Cancel Edit</div>
+            <div onClick={cancelEdit} className='cursor-pointer text-sm text-richBlack-600 underline'>Cancel Edit</div>
           }
         </div>
 

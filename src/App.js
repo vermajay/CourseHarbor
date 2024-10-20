@@ -33,7 +33,7 @@ function App() {
   const {user} = useSelector((state) => state.profile);
 
   return (
-    <div className = "bg-richBlack-900 w-screen min-h-screen flex flex-col justify-start font-inter">
+    <div className = "bg-[#F0F8F7] w-screen min-h-screen flex flex-col justify-start font-inter">
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>

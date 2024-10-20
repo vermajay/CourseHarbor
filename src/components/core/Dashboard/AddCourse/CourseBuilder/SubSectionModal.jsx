@@ -107,17 +107,17 @@ const SubSectionModal = ({modalData, setModalData, add=false, view=false, edit=f
       }
 
     return (
-        <div className="fixed inset-0 z-[1000] !mt-0 grid h-screen w-screen place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[1000] !mt-0 grid h-screen w-screen place-items-center overflow-auto bg-black bg-opacity-10 backdrop-blur-sm">
         
-            <div className="my-10 w-11/12 max-w-[700px] rounded-lg border border-richbBlack-400 bg-richBlack-800">
+            <div className="my-10 w-11/12 max-w-[700px] rounded-lg border border-richbBlack-400 bg-[#F0F8F7] text-black">
 
                 {/* Modal Header */}
-                <div className="flex items-center justify-between rounded-t-lg bg-richBlack-700 p-5">
-                    <p className="text-xl font-semibold text-richBlack-5">
+                <div className="flex items-center justify-between rounded-t-lg bg-white p-5">
+                    <p className="text-xl font-semibold text-black">
                         {view && "Viewing"} {add && "Adding"} {edit && "Editing"} Lecture
                     </p>
                     <button onClick={() => (!loading && setModalData(null))}>
-                        <RxCross2 className="text-2xl text-richBlack-5" />
+                        <RxCross2 className="text-2xl text-black" />
                     </button>
                 </div>
 
@@ -138,7 +138,7 @@ const SubSectionModal = ({modalData, setModalData, add=false, view=false, edit=f
 
                     {/* Lecture Title */}
                     <div className="flex flex-col space-y-2">
-                        <label className="text-sm text-richBlack-5" htmlFor="lectureTitle">
+                        <label className="text-sm text-black" htmlFor="lectureTitle">
                             Lecture Title {!view && <sup className="text-pink-200">*</sup>}
                         </label>
                         <input
@@ -146,10 +146,10 @@ const SubSectionModal = ({modalData, setModalData, add=false, view=false, edit=f
                             id="lectureTitle"
                             placeholder="Enter Lecture Title"
                             {...register("lectureTitle", { required: true })}
-                            className='bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
+                            className='bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
                         />
                         {errors.lectureTitle && (
-                        <span className="ml-2 text-xs tracking-wide text-pink-200">
+                        <span className="ml-2 text-xs tracking-wide text-[#20B486]">
                             Lecture Title is required
                         </span>
                         )}
@@ -157,7 +157,7 @@ const SubSectionModal = ({modalData, setModalData, add=false, view=false, edit=f
 
                     {/* Lecture Description */}
                     <div className="flex flex-col space-y-2">
-                        <label className="text-sm text-richBlack-5" htmlFor="lectureDesc">
+                        <label className="text-sm text-black" htmlFor="lectureDesc">
                             Lecture Description {!view && <sup className="text-pink-200">*</sup>}
                         </label>
                         <textarea
@@ -165,10 +165,10 @@ const SubSectionModal = ({modalData, setModalData, add=false, view=false, edit=f
                             id="lectureDesc"
                             placeholder="Enter Lecture Description"
                             {...register("lectureDesc", { required: true })}
-                            className='min-h-[140px] bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
+                            className='min-h-[140px] bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
                         />
                         {errors.lectureDesc && (
-                        <span className="ml-2 text-xs tracking-wide text-pink-200">
+                        <span className="ml-2 text-xs tracking-wide text-[#20B486]">
                             Lecture Description is required
                         </span>
                         )}

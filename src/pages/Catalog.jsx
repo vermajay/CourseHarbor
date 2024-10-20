@@ -53,7 +53,7 @@ const Catalog = () => {
     }
     if (!catalogPageData) {
         return (
-            <div className='flex items-center justify-center text-richBlack-5 text-3xl mt-[15%]'>
+            <div className='flex items-center justify-center text-black text-3xl mt-[15%]'>
                 Catalog data not found😞
             </div>
         ) 
@@ -62,54 +62,55 @@ const Catalog = () => {
       return (
         <>
           {/* Hero Section */}
-          <div className=" box-content bg-richBlack-800 px-4">
-            <div className="mx-auto flex min-h-[260px] max-w-maxContentTab flex-col justify-center gap-4 lg:max-w-maxContent ">
-              <p className="text-sm text-richBlack-300">
+          <div className=" box-content bg-[#F0F8F7] px-4">
+            <div className="mx-auto flex min-h-[200px] max-w-maxContentTab flex-col justify-center gap-4 lg:max-w-maxContent ">
+              <p className="text-black">
                 {`Home / Catalog / `}
-                <span className="text-yellow-25">
+                <span className="text-[#20B486]">
                   {catalogPageData?.data?.selectedCategory?.name}
                 </span>
               </p>
-              <p className="text-3xl text-richBlack-5 font-semibold">
+              <p className="text-4xl text-[#20B486] font-semibold">
                 {catalogPageData?.data?.selectedCategory?.name}
               </p>
-              <p className="max-w-[870px] text-richBlack-200">
+              <p className="max-w-[870px] text-richBlack-900">
                 {catalogPageData?.data?.selectedCategory?.description}
               </p>
             </div>
           </div>
     
           {/* Section 1 */}
-          <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-            <div className="text-richBlack-5 text-2xl font-semibold mb-6">Courses to get you started</div>
-            <div>
-              <CourseSlider
-                Courses={catalogPageData?.data?.selectedCategory?.courses}
-              />
+          <div className='w-full bg-[#E2E8DF]'>
+            <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
+              <div className="text-[#208486] text-4xl font-semibold mb-6">Courses to get you started</div>
+              <div>
+                <CourseSlider
+                  Courses={catalogPageData?.data?.selectedCategory?.courses}
+                />
+              </div>
             </div>
-          </div>
-          {/* Section 2 */}
-          <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-            <div className="text-richBlack-5 text-2xl font-semibold">
-              Top courses in {catalogPageData?.data?.differentCategory?.name}
+            {/* Section 2 */}
+            <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 pb-12 lg:max-w-maxContent">
+              <div className="text-[#208486] text-4xl font-semibold">
+                Top courses in {catalogPageData?.data?.differentCategory?.name}
+              </div>
+              <div className="py-8">
+                <CourseSlider
+                  Courses={catalogPageData?.data?.differentCategory?.courses}
+                />
+              </div>
             </div>
-            <div className="py-8">
-              <CourseSlider
-                Courses={catalogPageData?.data?.differentCategory?.courses}
-              />
-            </div>
-          </div>
-    
-          {/* Section 3 */}
-          <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-            <div className="text-richBlack-5 text-2xl font-semibold">Frequently Bought</div>
-            <div className="py-8">
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-                {catalogPageData?.data?.mostSellingCourses
-                  ?.slice(0, 4)
-                  .map((course, i) => (
-                    <CourseCard course={course} key={i} Height={"h-[400px]"} />
-                  ))}
+            {/* Section 3 */}
+            <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 pb-12 lg:max-w-maxContent">
+              <div className="text-[#208486] text-4xl font-semibold">Frequently Bought</div>
+              <div className="py-8">
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+                  {catalogPageData?.data?.mostSellingCourses
+                    ?.slice(0, 4)
+                    .map((course, i) => (
+                      <CourseCard course={course} key={i} Height={"h-[400px]"} />
+                    ))}
+                </div>
               </div>
             </div>
           </div>

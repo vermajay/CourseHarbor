@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 html, body{
     overflow-x: hidden;
     overflow-y: hidden;
@@ -19,8 +22,8 @@ html:hover, body:hover, html:active, body:active, html:focus, body:focus {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: radial-gradient(farthest-side,#ffffff 94%,#0000) top/9px 9px no-repeat,
-          conic-gradient(#0000 30%,#ffffff);
+    background: radial-gradient(farthest-side,#20B486 94%,#0000) top/9px 9px no-repeat,
+          conic-gradient(#0000 30%,#20B486);
     -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
     animation: spinner-c7wet2 1s infinite linear;
 }
@@ -53,11 +56,11 @@ html:hover, body:hover, html:active, body:active, html:focus, body:focus {
 }
 
 .yellowButton {
-    @apply cursor-pointer rounded-md bg-yellow-50 px-[20px] py-[8px] font-semibold text-richBlack-900;
+    @apply cursor-pointer rounded-md bg-[#208486] px-[20px] py-[8px] font-semibold text-white;
   }
 
   .blackButton {
-    @apply cursor-pointer rounded-md bg-richBlack-800 px-[20px] py-[8px] font-semibold text-richBlack-5;
+    @apply cursor-pointer rounded-md bg-richBlack-700 px-[20px] py-[8px] font-semibold text-white;
   }
 
   .swiper-slide {
@@ -66,5 +69,16 @@ html:hover, body:hover, html:active, body:active, html:focus, body:focus {
   }
 
   .form-style {
-    @apply rounded-lg bg-richBlack-700 p-3 text-[16px] leading-[24px] text-richBlack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richBlack-400 focus:outline-none;
+    @apply rounded-lg bg-richBlack-25 p-3 text-[16px] leading-[24px] text-black shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richBlack-400 focus:outline-none;
   }
+
+.slick-prev:before,.slick-next:before{
+    color: black;
+    font-size: 40px;
+}
+.slick-next:before{
+    margin-left: -25px;
+}
+.slick-prev{
+    z-index: 9999;
+}

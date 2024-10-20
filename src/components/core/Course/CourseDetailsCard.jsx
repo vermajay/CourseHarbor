@@ -51,7 +51,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
   return (
     <>
       <div
-        className={`flex flex-col gap-4 rounded-md bg-richBlack-700 p-4 text-richBlack-5`}
+        className={`flex flex-col gap-4 rounded-md bg-white p-4 text-black`}
       >
         {/* Course Image */}
         <img
@@ -84,7 +84,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
             )}
           </div>
           <div>
-            <p className="pb-3 pt-6 text-center text-sm text-richBlack-25">
+            <p className="pb-3 pt-6 text-center text-sm text-black">
               30-Day Money-Back Guarantee
             </p>
           </div>
@@ -93,7 +93,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
             <p className={`my-2 text-xl font-semibold `}>
               This Course Includes :
             </p>
-            <div className="flex flex-col gap-3 text-sm text-caribbeangreen-100">
+            <div className="flex flex-col gap-3 text-sm text-caribbeanGreen-200">
               {course?.instructions?.map((item, i) => {
                 return (
                   <p className={`flex gap-2`} key={i}>
@@ -106,7 +106,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
           </div>
           <div className="text-center">
             <button
-              className="mx-auto flex items-center gap-2 py-6 text-yellow-100 "
+              className="mx-auto flex items-center gap-2 py-6 text-[#208486]"
               onClick={handleShare}
             >
               <FaShareSquare size={15} /> Share

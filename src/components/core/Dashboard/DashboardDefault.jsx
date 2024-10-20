@@ -3,8 +3,8 @@ import HighlightText from '../HomePage/HighlightText'
 
 const DashboardDefault = () => {
   return (
-    <div className='text-richBlack-5 font-black text-7xl'>
-      <HighlightText text={"Welcome to your Dashboard"}/>
+    <div className='text-[#208486] font-black text-7xl'>
+      Welcome to your Dashboard
     </div>
   )
 }

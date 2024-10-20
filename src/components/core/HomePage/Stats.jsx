@@ -15,23 +15,19 @@ const Stats = () => {
             count: "200+",
             label: "Courses"
         },
-        {
-            count: "50+",
-            label: "Awards"
-        },
     ]
 
   return (
-    <div className='px-[85px] py-[90px] flex justify-between'>
+    <div className='px-[85px] py-[90px] flex justify-around'>
       {
         stats.map((stat, index) => (
 
             <div key={index} className='flex flex-col items-center gap-1'>
 
-                <div className='text-richBlack-5 font-bold text-3xl leading-[38px]'>
+                <div className='text-white font-bold text-5xl leading-[38px]'>
                     {stat.count}
                 </div>
-                <div className='text-richBlack-500 text-lg font-semibold'>
+                <div className='text-richBlack-5 text-2xl font-semibold'>
                     {stat.label}
                 </div>
 

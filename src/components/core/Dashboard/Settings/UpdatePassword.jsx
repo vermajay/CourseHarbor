@@ -30,7 +30,7 @@ const UpdatePassword = () => {
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
 
-    <div className='flex flex-col gap-6 py-8 px-12 mb-8 rounded-lg text-richBlack-5 text-sm leading-[22px] border border-richBlack-700 bg-richBlack-800'>
+    <div className='flex flex-col gap-6 py-8 px-12 mb-8 rounded-lg text-black text-sm leading-[22px] bg-white'>
 
       <div className='font-semibold text-lg'>Change Password</div>
 
@@ -38,21 +38,22 @@ const UpdatePassword = () => {
         {/* current password */}
         <div className='relative flex flex-col gap-2 lg:w-[48%]'>
           <label htmlFor='oldPassword'>Current Password</label>
-          <input className='w-full bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+          <input className='w-full bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
             type={showCurrentPassword ? 'text' : 'password'}
             id='oldPassword'
             placeholder="Enter Current Password"
             {...register("oldPassword", {required: true})}
           />
           <span onClick={()=>setShowCurrentPassword((prev)=>!prev)}
-          className='cursor-pointer absolute right-2 bottom-2 text-[1.75rem] text-richBlack-100'>
+          className={`${errors.oldPassword ? 'bottom-8' : 'bottom-2'} cursor-pointer absolute right-2 text-[1.75rem] text-[#208486]`}
+          >
             {
               showCurrentPassword ? <AiOutlineEyeInvisible/> : <AiOutlineEye/>
             }
           </span>
           {
             errors.oldPassword && (
-              <span className='text-sm -mt-1 text-yellow-50'>
+              <span className='text-sm -mt-1 text-[#208486]'>
                 Please enter your old password.
               </span>
             )
@@ -61,21 +62,21 @@ const UpdatePassword = () => {
         {/* new password */}
         <div className='relative flex flex-col gap-2 lg:w-[48%]'>
           <label htmlFor='newPassword'>New Password</label>
-          <input className='w-full bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+          <input className='w-full bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
             type={showNewPassword ? 'text' : 'password'}
             id='newPassword'
             placeholder="Enter New Password"
             {...register("newPassword", {required: true})}
           />
           <span onClick={()=>setShowNewPassword((prev)=>!prev)}
-          className='cursor-pointer absolute right-2 bottom-2 text-[1.75rem] text-richBlack-100'>
+          className={`${errors.oldPassword ? 'bottom-8' : 'bottom-2'} cursor-pointer absolute right-2 text-[1.75rem] text-[#208486]`}>
             {
               showNewPassword ? <AiOutlineEyeInvisible/> : <AiOutlineEye/>
             }
           </span>
           {
             errors.newPassword && (
-              <span className='text-sm -mt-1 text-yellow-50'>
+              <span className='text-sm -mt-1 text-[#208486]'>
                 Please enter your new password.
               </span>
             )
@@ -88,7 +89,7 @@ const UpdatePassword = () => {
 
     <div className='flex justify-end gap-2'>
         <button onClick={()=>navigate("../my-profile")}
-        className='cursor-pointer rounded-md bg-richBlack-700 py-[8px] px-[20px] font-semibold text-richBlack-50'>
+        className='cursor-pointer rounded-md bg-richBlack-600 py-[8px] px-[20px] font-semibold text-white'>
           Cancel
         </button>
         <IconBtn

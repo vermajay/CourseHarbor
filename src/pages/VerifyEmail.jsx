@@ -44,8 +44,8 @@ const VerifyEmail = () => {
                 :
                 (
                     <div className='flex flex-col gap-4 max-w-md'>
-                        <p className='text-richBlack-5 font-semibold text-3xl'>Verify Email</p>
-                        <p className='text-richBlack-100 text-lg leading-[26px]'>A verification code has been sent to you. Enter the code below</p>
+                        <p className='text-black font-semibold text-3xl'>Verify Email</p>
+                        <p className='text-[#4B5563] text-lg leading-[26px]'>A verification code has been sent to you. Enter the code below</p>
 
                         <form onSubmit={submitHandler}>
 
@@ -60,7 +60,7 @@ const VerifyEmail = () => {
                                     style={{
                                         boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                                     }}
-                                    className="w-[48px] lg:w-[60px] border-0 bg-richBlack-800 rounded-[0.5rem] text-richBlack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50"
+                                    className="w-[48px] lg:w-[60px] border-0 bg-white rounded-[0.5rem] text-black aspect-square text-center focus:border-0 focus:outline-2 focus:outline-[#208486]"
                                     />
                                 )}
                                 containerStyle={{
@@ -69,7 +69,7 @@ const VerifyEmail = () => {
                                 }}
                             />
                             <button type='submit'
-                                    className='bg-yellow-50 text-black w-full mt-6
+                                    className='bg-[#20B486] text-white w-full mt-6
                                     shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] hover:shadow-none 
                                     text-center text-[16px] px-6 py-3 rounded-md font-bold hover:scale-95 transition-all duration-200'>
                                 Verify Email
@@ -79,7 +79,7 @@ const VerifyEmail = () => {
 
                         <div className='flex justify-between'>
 
-                            <Link to="/login" className='text-richBlack-5 font-medium text-base hover:scale-95 transition-all duration-200'>
+                            <Link to="/login" className='text-black font-medium text-base hover:scale-95 transition-all duration-200'>
                                 <div className='flex items-center gap-2'>
                                     <HiOutlineArrowNarrowLeft size={20}/>
                                     <p>Back to login</p>

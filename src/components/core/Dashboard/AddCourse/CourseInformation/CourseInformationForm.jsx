@@ -150,27 +150,27 @@ const CourseInformationForm = () => {
 
     if(loading)
     return (
-        <div className='grid place-items-center rounded-lg border border-richBlack-700 bg-richBlack-800 p-6 w-full'>
+        <div className='grid place-items-center rounded-lg bg-white p-6 w-full'>
             <div className='spinner'></div>
         </div>
     )
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}
-     className='rounded-lg border border-richBlack-700 bg-richBlack-800 p-6 w-full space-y-8 text-richBlack-5 text-sm leading-[22px]'>
+     className='rounded-lg bg-white p-6 w-full space-y-8 text-black text-sm leading-[22px]'>
       
         {/* Course Title */}
         <div className='flex flex-col gap-2'>
             <label htmlFor='courseTitle'>Course Title<sup className='text-pink-200'> *</sup></label>
             <input
-                className='bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
+                className='bg-richBlack-25 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none text-black'
                 id='courseTitle'
                 placeholder='Enter Course Title'
                 {...register("courseTitle", {required:true})}
             />
             {
               errors.courseTitle && (
-                <span className='text-xs -mt-1 text-yellow-50'>
+                <span className='text-xs -mt-1 text-[#20B486]'>
                   Course Title is required
                 </span>
               )
@@ -181,14 +181,14 @@ const CourseInformationForm = () => {
         <div className='flex flex-col gap-2'>
             <label htmlFor='courseShortDesc'>Course Short Description<sup className='text-pink-200'> *</sup></label>
             <textarea
-                className='min-h-[140px] bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
+                className='min-h-[140px] bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
                 id='courseShortDesc'
                 placeholder='Enter Description'
                 {...register("courseShortDesc", {required:true})}
             />
             {
               errors.courseShortDesc && (
-                <span className='text-xs -mt-1 text-yellow-50'>
+                <span className='text-xs -mt-1 text-[#20B486]'>
                   Course Description is required
                 </span>
               )
@@ -200,10 +200,10 @@ const CourseInformationForm = () => {
             <label htmlFor='coursePrice'>Course Price<sup className='text-pink-200'> *</sup></label>
 
 
-            <div className='flex gap-3 items-center bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'>
-                <HiOutlineCurrencyRupee className='text-richBlack-400 text-2xl'/>
+            <div className='flex gap-3 items-center bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'>
+                <HiOutlineCurrencyRupee className='text-2xl'/>
                 <input
-                    className='bg-richBlack-700 focus:outline-none'
+                    className='bg-richBlack-25 focus:outline-none'
                     id='coursePrice'
                     type='number'
                     placeholder='Enter Course Price'
@@ -213,7 +213,7 @@ const CourseInformationForm = () => {
 
             {
               errors.coursePrice && (
-                <span className='text-xs -mt-1 text-yellow-50'>
+                <span className='text-xs -mt-1 text-[#20B486]'>
                   Course Price is required
                 </span>
               )
@@ -224,7 +224,7 @@ const CourseInformationForm = () => {
         <div className='flex flex-col gap-2'>
             <label htmlFor='courseCategory'>Course Category<sup className='text-pink-200'> *</sup></label>
             <select
-                className='bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
+                className='bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
                 id='courseCategory'
                 defaultValue=""
                 {...register("courseCategory", {required:true})}
@@ -239,7 +239,7 @@ const CourseInformationForm = () => {
             </select>
             {
               errors.courseCategory && (
-                <span className='text-xs -mt-1 text-yellow-50'>
+                <span className='text-xs -mt-1 text-[#20B486]'>
                   Course Category is required
                 </span>
               )
@@ -270,14 +270,14 @@ const CourseInformationForm = () => {
         <div className='flex flex-col gap-2'>
             <label htmlFor='courseBenefits'>Benefits of the Course<sup className='text-pink-200'> *</sup></label>
             <textarea
-                className='min-h-[140px] bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
+                className='min-h-[140px] bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none'
                 id='courseBenefits'
                 placeholder='Enter Benefits of the Course'
                 {...register("courseBenefits", {required:true})}
             />
             {
               errors.courseBenefits && (
-                <span className='text-xs -mt-1 text-yellow-50'>
+                <span className='text-xs -mt-1 text-[#20B486]'>
                   Course benefits are required
                 </span>
               )
@@ -299,7 +299,7 @@ const CourseInformationForm = () => {
                     <button
                         onClick={()=>dispatch(setStep(2))}
                         disabled={loading}
-                        className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richBlack-300 py-[8px] px-[20px] font-semibold text-richBlack-900`}
+                        className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richBlack-200 py-[8px] px-[20px] font-semibold text-richBlack-900`}
                     >
                         Continue Without Saving
                     </button>

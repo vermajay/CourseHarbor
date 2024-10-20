@@ -1,8 +1,6 @@
 import React from 'react'
-import {FaArrowRight} from 'react-icons/fa'
 import HighlightText from '../components/core/HomePage/HighlightText'
 import CTAButton from '../components/core/HomePage/CTAButton'
-import CodeBlocks from '../components/core/HomePage/CodeBlocks'
 import Footer from '../components/common/Footer'
 
 import TimeLineImage from '../assets/Images/TimelineImage.png'
@@ -10,104 +8,31 @@ import TimeLineLogo1 from '../assets/TimeLineLogo/Logo1.svg'
 import TimeLineLogo2 from '../assets/TimeLineLogo/Logo2.svg'
 import TimeLineLogo3 from '../assets/TimeLineLogo/Logo3.svg'
 import TimeLineLogo4 from '../assets/TimeLineLogo/Logo4.svg'
-import KnowYourProgress from '../assets/Images/Know_your_progress.svg'
-import CompareWithOthers from '../assets/Images/Compare_with_others.svg'
-import PlanYourLessons from '../assets/Images/Plan_your_lessons.svg'
-import Instructor from '../assets/Images/Instructor.png'
-import ReviewSlider from '../components/common/ReviewSlider'
+import Stats from '../components/core/HomePage/Stats'
+import Categories from '../components/core/HomePage/Categories'
+import Feedback from '../components/core/HomePage/Feedback'
+import home_signup from "../assets/Images/home_signup.png"
+import heroImg from '../assets/Images/heroImg.png'
 
 const Home = () => {
   return (
     <div>
 
-        {/* Section 1 */}
-        <div className='relative mx-auto flex flex-col w-11/12 max-w-maxContent items-center 
-        text-white justify-between'>
-
-            <div className='text-7xl mb-16 mt-24'>
-                <HighlightText text={"Create, sell and buy courses!"}/>
+        <section className='w-full bg-[#F9F9F9] py-24 p-4'>
+            <div className='md:max-w-[1100px] m-auto grid md:grid-cols-2 max-w-[400px]'>
+                <div className='flex flex-col justify-start gap-4'>
+                    <p className='py-2 text-4xl text-[#208486] font-bold'>START TO SUCCESS</p>
+                    <h1 className='md:leading-[42px] py-2 md:text-3xl text-lg font-semibold'>
+                        Unlock your <span className='text-[#208486]'>learning potential</span> with our online courses from <span className='text-[#208486]'>professional</span> and <span className='text-[#208486]'>trusted</span> instructors.
+                    </h1>
+                    <p className='py-2 text-lg text-gray-900'>Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you.</p>
+                    <CTAButton active={true} linkTo={"/signup"}>
+                        Start Learning
+                    </CTAButton>
+                </div>
+                <img src={heroImg} alt="hero" className='md:order-last order-first'/>
             </div>
-
-            {/* <div className='mt-5 w-[85%] text-center text-3xl font-semibold text-richBlack-300'>
-            Create, sell and buy courses!
-            </div> */}
-
-            {/* Code Section 1 */}
-            <div>
-                <CodeBlocks
-                    position={"lg:flex-row"}
-
-                    heading={
-                    <div className='text-4xl font-semibold'>
-                        Unlock your <HighlightText text={"coding potential"}/> with our online courses.
-                    </div>}
-
-                    subheading = {
-                        "Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you."
-                    }
-
-                    ctabtn1={
-                        {
-                            btnText: "Try it Yourself",
-                            linkTo: "/signup",
-                            active: true,
-                        }
-                    }
-                    ctabtn2={
-                        {
-                            btnText: "Learn More",
-                            linkTo: "/login",
-                            active: false,
-                        }
-                    }
-
-                    codeBlock = {`<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8"/>\n<meta name="viewport", initial-scale=1"/>\n<title>React</title>\n</head>\n<body>\n<noscript>JavaScript</noscript>\n</body>\n</html>`}
-
-                    codeColor={"text-yellow-25"}
-
-                    backgroudGradient={"bg-gradient-to-r from-[#991b1b89] via-[#ca8b0483] to-[#eab20883]"}
-                />
-            </div>
-
-            {/* Code Section 2 */}
-            <div>
-                <CodeBlocks
-                    position={"lg:flex-row-reverse"}
-
-                    heading={
-                    <div className='text-4xl font-semibold'>
-                        Start <HighlightText text={"coding in seconds"}/>
-                    </div>}
-
-                    subheading = {
-                        "Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson."
-                    }
-
-                    ctabtn1={
-                        {
-                            btnText: "Continue Lesson",
-                            linkTo: "/signup",
-                            active: true,
-                        }
-                    }
-                    ctabtn2={
-                        {
-                            btnText: "Learn More",
-                            linkTo: "/login",
-                            active: false,
-                        }
-                    }
-
-                    codeBlock = {`import React from 'react'\nimport { Link } from 'react-router-dom'\nimport {FaArrowRight} from 'react-icons/fa'\n\nconst Home = () => {\n  return (\n<div></div>\n  )\n}\n\nexport default Home`}
-
-                    codeColor={"text-[#D3F5FE]"}
-
-                    backgroudGradient={"bg-gradient-to-r from-[#38BDF870] to-[#BAE6FD70]"}
-                />
-            </div>
-
-        </div>
-
+        </section>
 
         {/* Section 2 */}
         <div className='bg-pureGreys-5 text-richBlack-700'>
@@ -203,82 +128,36 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className='flex flex-col items-center mt-[90px] gap-12'>
-                    
-                    <div className='text-center'>
-                        <p className='text-richBlack-900 text-4xl font-semibold'>
-                            Your swiss knife for <HighlightText text={"learning any language"}/>
-                        </p>
-
-                        <p className='font-medium max-w-[54rem] mt-3'>
-                            Using spin making learning multiple languages easy. with 20+ languages realistic voice-over, progress tracking, custom schedule and more.
-                        </p>
-                    </div>
-
-                    <div className='relative h-[470px] w-full'>
-                        <div className='absolute left-14 h-[450px] w-[450px]'>
-                            <img src={KnowYourProgress} alt="KnowYourProgress"/>
-                        </div>
-                        <div className='absolute -top-14 left-[50%] translate-x-[-50%] h-[550px] w-[500px]'>
-                            <img src={CompareWithOthers} alt="CompareWithOthers"/>
-                        </div>
-                        <div className='absolute -top-14 right-10 h-[500px] w-[500px]'>
-                            <img src={PlanYourLessons} alt="PlanYourLessons"/>
-                        </div>
-                    </div>
-
-                    <div className='-mt-3'>
-                        <CTAButton active={true} linkTo={"/signup"}>
-                            Learn More
-                        </CTAButton>
-                    </div>
-
-                </div>
-
             </div>
 
         </div>
 
+        <Categories/>
 
-        {/* Section 3 */}
-        <div className='w-11/12 max-w-maxContent mx-auto flex flex-col gap-16 py-[90px] text-richBlack-300'>
-            
-            {/* Instructor Section  */}
-            <div className='flex gap-20'>
+        <section className='bg-[#1F8586]'>
+            <div className='w-11/12 max-w-maxContent mx-auto'>
+                <Stats/>
+            </div>
+        </section>
 
-                <div className='w-[80%]'>
-                    <img className='shadow-[-20px_-20px_0px_0px_rgb(255,255,255)]' src={Instructor} alt="Instructor"/>
-                </div>
+        <Feedback/>
 
-                <div className='flex flex-col gap-10 items-start justify-center mr-5'>
-                    <div className='text-richBlack-5 font-semibold text-4xl leading-[44px]'>
-                        Become an
-                        <div className='leading-[44px]'>
-                            <HighlightText text={"instructor"}/>
-                        </div>
-                    </div>
-                    <div className='font-medium'>
-                        Instructors from around the world teach millions of students on CourseHarbor. We provide the tools and skills to teach what you love.
-                    </div>
+        {/* <ReviewSlider /> */}
+
+        <section className='w-full bg-white py-24 p-4 items-center'>
+            <div className='md:max-w-[1100px] m-auto grid md:grid-cols-2 gap-8 max-w-[400px]'>
+                <img src={home_signup} alt="hero" className='w-[500px] mx-auto'/>
+                <div className='flex flex-col justify-start gap-4'>
                     <div>
-                        <CTAButton active={true} linkTo={"/signup"}> 
-                            <div className='flex items-center gap-2'>
-                                Start Teaching Today
-                                <FaArrowRight/>
-                            </div>
-                        </CTAButton>
+                    <h1 className='md:leading-[42px] py-8 md:text-3xl text-lg font-semibold'>
+                        Join one of the best <span className='text-[#208486]'>platforms for online</span> courses from all over the world
+                    </h1>
+                    <p className='py-2 text-lg text-gray-900'>Various versions have evolved over the years</p>
+                    <button className='max-[780px]:w-full px-8 text-white py-3 bg-[#208446]'>Sign up for free</button>
                     </div>
                 </div>
-
             </div>
-
-            <div>
-                <div className='text-center text-white font-semibold text-4xl leading-[44px]'>Reviews from other learners</div>
-            </div>
-
-            <ReviewSlider />
-
-        </div>
+        </section>
 
         {/* Footer */}
         <Footer/>

@@ -8,8 +8,8 @@ export default function Cart() {
 
   return (
     <>
-      <h1 className="mb-14 text-3xl font-medium text-richBlack-5">Cart</h1>
-      <p className="border-b border-b-richBlack-400 pb-2 font-semibold text-richBlack-400">
+      <h1 className="mb-8 text-4xl font-semibold text-[#208486]">Cart</h1>
+      <p className="border-b border-b-richBlack-600 pb-2 font-semibold text-richBlack-800">
         {totalItems} Courses in Cart
       </p>
       {total > 0 ? (
@@ -18,7 +18,7 @@ export default function Cart() {
           <RenderTotalAmount />
         </div>
       ) : (
-        <p className="mt-14 text-center text-3xl text-richBlack-100">
+        <p className="mt-14 text-center text-3xl text-richBlack-700">
           Your cart is empty
         </p>
       )}

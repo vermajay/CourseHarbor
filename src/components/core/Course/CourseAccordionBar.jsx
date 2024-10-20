@@ -18,7 +18,7 @@ export default function CourseAccordionBar({ section, isActive, handleActive }) 
   }, [active])
 
   return (
-    <div className="overflow-hidden border border-solid border-richBlack-600 bg-richBlack-700 text-richBlack-5 last:mb-0">
+    <div className="overflow-hidden border border-solid border-richBlack-600 bg-white text-black last:mb-0">
       <div>
         <div
           className={`flex cursor-pointer items-start justify-between bg-opacity-20 px-7  py-6 transition-[0.35s]`}
@@ -37,7 +37,7 @@ export default function CourseAccordionBar({ section, isActive, handleActive }) 
             <p>{section?.sectionName}</p>
           </div>
           <div className="space-x-4">
-            <span className="text-yellow-25">
+            <span className="text-[#208486]">
               {`${section.subSection.length || 0} lecture(s)`}
             </span>
           </div>
@@ -45,7 +45,7 @@ export default function CourseAccordionBar({ section, isActive, handleActive }) 
       </div>
       <div
         ref={contentEl}
-        className={`relative h-0 overflow-hidden bg-richBlack-900 transition-[height] duration-[0.35s] ease-[ease]`}
+        className={`relative h-0 overflow-hidden bg-richBlack-300 text-white transition-[height] duration-[0.35s] ease-[ease]`}
         style={{
           height: sectionHeight,
         }}

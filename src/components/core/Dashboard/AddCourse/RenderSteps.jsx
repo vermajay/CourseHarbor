@@ -32,10 +32,10 @@ const RenderSteps = () => {
           Steps.map((Step)=>(
 
             <div className='flex items-center'>
-              <div className={`w-[34px] h-[34px] rounded-full border flex items-center justify-center 
-              ${Step.id === step ? 'border-yellow-50 bg-yellow-900 text-yellow-50' : 
-              'border-richBlack-700 bg-richBlack-800 text-richBlack-300'} text-lg font-semibold
-              ${Step.id < step && 'text-richBlack-900 bg-yellow-50'}`}>
+              <div className={`w-[34px] h-[34px] rounded-full flex items-center justify-center 
+              ${Step.id === step ? 'bg-[#20B486] text-white' : 
+              'bg-white text-black'} text-lg font-semibold
+              ${Step.id < step && 'text-white bg-[#208486]'}`}>
 
                 {
                   Step.id < step ? <FaCheck/> : Step.id
@@ -44,7 +44,7 @@ const RenderSteps = () => {
               </div>
               {
                 Step.id != Steps.length && (
-                  <div className={`w-[12.5rem] border-dashed border-b-2 ${Step.id < step ? 'border-yellow-50' : 'border-richBlack-400'}`}></div>
+                  <div className={`w-[12.5rem] border-dashed border-b-2 ${Step.id < step ? 'border-[#208486]' : 'border-richBlack-400'}`}></div>
                 )
               }
             </div>  
@@ -56,7 +56,7 @@ const RenderSteps = () => {
       <div className='flex justify-between w-full select-none mt-2 pr-4 mb-14'>
         {
           Steps.map((Step)=>(
-            <div className={`${Step.id <= step ? 'text-richBlack-5' : 'text-richBlack-500'} text-sm`}>
+            <div className={`${Step.id <= step ? 'text-[#208486] font-semibold' : 'text-richBlack-700'} text-sm`}>
               {Step.title}
             </div>
           ))

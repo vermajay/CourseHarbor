@@ -125,7 +125,7 @@ function CourseDetails() {
 
   return (
     <>
-      <div className={`relative w-full bg-richBlack-800`}>
+      <div className={`relative w-full bg-[#d5e5cd]`}>
         {/* Hero Section */}
         <div className="mx-auto box-content px-4 lg:w-[1260px] 2xl:relative ">
           <div className="mx-auto grid min-h-[450px] max-w-maxContentTab justify-items-center py-8 lg:mx-0 lg:justify-items-start lg:py-0 xl:max-w-[810px]">
@@ -138,16 +138,16 @@ function CourseDetails() {
               />
             </div>
             <div
-              className={`z-30 my-5 flex flex-col justify-center gap-4 py-5 text-lg text-richBlack-5`}
+              className={`z-30 my-5 flex flex-col justify-center gap-4 py-5 text-lg text-black`}
             >
               <div>
-                <p className="text-4xl font-bold text-richBlack-5 sm:text-[42px]">
+                <p className="text-4xl font-bold text-black sm:text-[42px]">
                   {courseName}
                 </p>
               </div>
-              <p className={`text-richBlack-200`}>{courseDescription}</p>
+              <p className={`text-richBlack-700`}>{courseDescription}</p>
               <div className="text-md flex flex-wrap items-center gap-2">
-                <span className="text-yellow-25">{avgReviewCount}</span>
+                <span className="text-[#208486]">{avgReviewCount}</span>
                 <RatingStars Review_Count={avgReviewCount} Star_Size={24} />
                 <span>{`(${ratingAndReviews.length} reviews)`}</span>
                 <span>{`${studentsEnrolled.length} students enrolled`}</span>
@@ -162,7 +162,7 @@ function CourseDetails() {
                   {" "}
                   <BiInfoCircle /> Created at {formatDate(createdAt)}
                 </p>
-                <p className="flex items-center gap-2">
+                <p className="flex items-center gap-2 text-[#208486]">
                   {" "}
                   <HiOutlineGlobeAlt /> English
                 </p>
@@ -188,12 +188,12 @@ function CourseDetails() {
           </div>
         </div>
       </div>
-      <div className="mx-auto box-content px-4 text-start text-richBlack-5 lg:w-[1260px]">
+      <div className="mx-auto box-content px-4 text-start text-black lg:w-[1260px]">
         <div className="mx-auto max-w-maxContentTab lg:mx-0 xl:max-w-[810px]">
           {/* What will you learn section */}
-          <div className="my-8 border border-richBlack-600 p-8">
-            <p className="text-3xl font-semibold">What you'll learn</p>
-            <div className="mt-5">
+          <div className="my-8 bg-white p-8 rounded-lg">
+            <p className="text-3xl font-semibold text-[#208486]">What you'll learn</p>
+            <div className="mt-4">
               <Markdown>{whatYouWillLearn}</Markdown>
             </div>
           </div>
@@ -214,7 +214,7 @@ function CourseDetails() {
                 </div>
                 <div>
                   <button
-                    className="text-yellow-25"
+                    className="text-[#208486]"
                     onClick={() => setIsActive([])}
                   >
                     Collapse all sections
@@ -248,9 +248,9 @@ function CourseDetails() {
                   alt="Author"
                   className="h-14 w-14 rounded-full object-cover"
                 />
-                <p className="text-lg">{`${instructor.firstName} ${instructor.lastName}`}</p>
+                <p className="text-lg font-medium">{`${instructor.firstName} ${instructor.lastName}`}</p>
               </div>
-              <p className="text-richBlack-50">
+              <p className="text-richBlack-700">
                 {instructor?.additionalDetails?.about}
               </p>
             </div>

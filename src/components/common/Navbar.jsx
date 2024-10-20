@@ -41,7 +41,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-14 border-b border-richBlack-700">
+    <div className="h-14 border-b border-richBlack-700 bg-richBlack-900">
       <div className="flex w-11/12 h-full max-w-maxContent items-center justify-between mx-auto">
         <Link to={"/"}>
           <img src={CourseHarborLogo} alt="logo" height={40} width={170} loading="lazy" />
@@ -109,7 +109,7 @@ const Navbar = () => {
             <Link to="/dashboard/cart" className="relative">
               <AiOutlineShoppingCart className="text-richBlack-100 text-2xl" />
               {totalItems > 0 && (
-                <span className="absolute -top-2 -right-1 text-white">
+                <span className="absolute -top-3 -right-3 text-white bg-[#208486] rounded-full w-full flex items-center justify-center">
                   {totalItems}
                 </span>
               )}

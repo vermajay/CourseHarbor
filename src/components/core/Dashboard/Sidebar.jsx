@@ -21,7 +21,7 @@ const Sidebar = () => {
 
   if (profileLoading || authLoading) {
     return (
-      <div className="flex h-[calc(100vh-3.5rem)] min-w-[220px] items-center justify-center border-r-[1px] border-r-richBlack-700 bg-richBlack-800">
+      <div className="flex h-[calc(100vh-3.5rem)] min-w-[220px] items-center justify-center border-r-[1px] border-r-white bg-[#1F8586]">
         <div className="spinner"></div>
       </div>
     )
@@ -29,7 +29,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className='flex flex-col bg-richBlack-800 min-w-[220px] border-r-[1px] border-r-richBlack-700 py-8'>
+      <div className='flex flex-col bg-[#1F8586] min-w-[220px] border-r-[1px] border-r-white py-8'>
         
         <div className='flex flex-col'>
           {sidebarLinks.map((link)=>{
@@ -40,7 +40,7 @@ const Sidebar = () => {
           })}
         </div>
 
-        <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richBlack-700" />
+        <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-white" />
 
         <div className='flex flex-col'>
 
@@ -59,7 +59,7 @@ const Sidebar = () => {
             }}
           >
 
-            <div className='flex text-richBlack-300 gap-3 items-center font-medium px-6 py-2'>
+            <div className='flex text-white gap-3 items-center font-medium px-6 py-2'>
               <VscSignOut className="text-xl"/>
               <span>Logout</span>
             </div>

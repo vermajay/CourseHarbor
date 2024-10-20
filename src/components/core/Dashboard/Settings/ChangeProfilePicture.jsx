@@ -59,7 +59,7 @@ const ChangeProfilePicture = () => {
   }, [imageFile])
 
   return (
-    <div className='flex items-center gap-5 py-8 px-12 rounded-lg text-richBlack-5 border border-richBlack-700 bg-richBlack-800'>
+    <div className='flex items-center gap-5 py-8 px-12 rounded-lg text-black bg-white'>
       
       <img
         src={previewSource || user?.image}
@@ -84,7 +84,7 @@ const ChangeProfilePicture = () => {
           <button
             onClick={handleClick}
             disabled={loading}
-            className="cursor-pointer rounded-md bg-richBlack-700 py-2 px-5 font-semibold text-richBlack-50"
+            className="cursor-pointer rounded-md bg-richBlack-600 py-2 px-5 font-semibold text-white"
           >
             Select
           </button>
@@ -94,7 +94,7 @@ const ChangeProfilePicture = () => {
           >
             {
               !loading && (
-                <FiUpload className='text-lg text-richBlack-900'/>
+                <FiUpload className='text-lg text-white'/>
               ) 
             }
           </IconBtn>

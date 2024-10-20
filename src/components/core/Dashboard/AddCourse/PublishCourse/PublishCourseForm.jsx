@@ -6,6 +6,7 @@ import { COURSE_STATUS } from '../../../../../utils/constants'
 import { resetCourseState, setStep } from '../../../../../slices/courseSlice'
 import IconBtn from '../../../../common/IconBtn'
 import { editCourseDetails } from '../../../../../services/operations/courseDetailsApi'
+import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 
 const PublishCourseForm = () => {
 
@@ -61,9 +62,9 @@ const PublishCourseForm = () => {
   }
 
   return (
-    <div className="rounded-md border-[1px] border-richBlack-700 bg-richBlack-800 p-6 w-full">
+    <div className="rounded-md bg-white text-black p-6 w-full">
       
-      <p className="text-2xl font-semibold text-richBlack-5">
+      <p className="text-2xl font-semibold">
         Publish Settings
       </p>
 
@@ -84,14 +85,17 @@ const PublishCourseForm = () => {
         </div>
         {/* Next Prev Button */}
         <div className="ml-auto flex max-w-max items-center gap-x-4">
-          <button
-            disabled={loading}
-            type="button"
-            onClick={goBack}
-            className="flex cursor-pointer items-center gap-x-2 rounded-md bg-richBlack-300 py-[8px] px-[20px] font-semibold text-richBlack-900"
+
+          <button className='flex items-center cursor-pointer gap-x-2 rounded-md py-2 px-5 font-semibold
+          drop-shadow-[2px_2px_rgba(255,255,255,0.25)] text-richBlack-5 bg-richBlack-700'
+          disabled={loading}
+          type="button"
+          onClick={goBack}
           >
+            <MdOutlineKeyboardArrowLeft/>
             Back
           </button>
+
           <IconBtn disabled={loading} text="Save Changes" />
         </div>
       </form>

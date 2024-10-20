@@ -35,32 +35,32 @@ const LogInForm = () => {
     <form onSubmit={submitHandler} className='flex flex-col w-full gap-y-4 mt-6'>
 
         <label className='w-full'>
-            <p className='text-[0.875rem] text-richBlack-5 mb-1 leading-[1.375rem]'>Email Address
+            <p className='text-[0.875rem] text-black mb-1 leading-[1.375rem]'>Email Address
             <sup className='text-pink-200'>*</sup>
             </p>
-            <input className='w-full bg-richBlack-800 rounded-[0.5rem] text-richBlack-5 p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)]'
+            <input className='w-full bg-white rounded-[0.5rem] text-black p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)]'
              required type='email' name='email' value={formData.email} placeholder='Enter email address' onChange={changeHandler}/>
         </label>
 
         <label className='w-full relative'>
-            <p className='text-[0.875rem] text-richBlack-5 mb-1 leading-[1.375rem]'>Password
+            <p className='text-[0.875rem] text-black mb-1 leading-[1.375rem]'>Password
             <sup className='text-pink-200'>*</sup>
             </p>
-            <input className='w-full bg-richBlack-800 rounded-[0.5rem] text-richBlack-5 p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)]'
+            <input className='w-full bg-white rounded-[0.5rem] text-black p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)]'
              required type={showPassword?"text":"password"} name='password' value={formData.password} placeholder='Enter Password' onChange={changeHandler}/>
             
-            <span className='absolute text-richBlack-200 right-3 top-[38px] cursor-pointer'
+            <span className='absolute text-[#208486] right-3 top-[38px] cursor-pointer'
              onClick={()=>setShowPassword(prev=>!prev)}>
                 {showPassword ? 
                 <AiOutlineEyeInvisible fontSize={24}/> : 
                 <AiOutlineEye fontSize={24}/>}
             </span>
             <Link to="/forgot-password">
-                <p className='text-sm mt-1 text-blue-100 absolute right-0'>Forgot Password</p>
+                <p className='text-sm mt-1 text-[#208486] absolute right-0'>Forgot Password</p>
             </Link>
         </label>
 
-        <button className='bg-yellow-50 rounded-[8px] font-medium text-richBlack-900 px-[12px] py-[8px] mt-12'>
+        <button className='bg-[#20B486] rounded-[8px] font-medium text-white px-[12px] py-[8px] mt-12'>
             Sign In
         </button>
 

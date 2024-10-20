@@ -59,12 +59,12 @@ export default function Upload({
 
   return (
     <div className="flex flex-col space-y-2">
-      <label className="text-sm text-richBlack-5" htmlFor={id}>
+      <label className="text-sm" htmlFor={id}>
         {label} {!viewData && <sup className="text-pink-200">*</sup>}
       </label>
       <div
         className={`${
-          isDragActive ? "bg-richBlack-600" : "bg-richBlack-700"
+          isDragActive ? "bg-richBlack-100" : "bg-richBlack-25"
         } flex min-h-[250px] cursor-pointer items-center justify-center rounded-md border-2 border-dotted border-richBlack-500`}
       >
         {previewSource ? (
@@ -86,7 +86,7 @@ export default function Upload({
                   setSelectedFile(null)
                   setValue(id, null)
                 }}
-                className="mt-3 text-richBlack-400 underline"
+                className="mt-3 text-black underline"
               >
                 Cancel
               </button>
@@ -98,15 +98,15 @@ export default function Upload({
             {...getRootProps()}
           >
             <input {...getInputProps()} ref={inputRef} />
-            <div className="grid aspect-square w-14 place-items-center rounded-full bg-pure-greys-800">
-              <FiUploadCloud className="text-2xl text-yellow-50" />
+            <div className="grid aspect-square w-14 place-items-center rounded-full">
+              <FiUploadCloud className="text-2xl text-[#208486]" />
             </div>
-            <p className="mt-2 max-w-[200px] text-center text-sm text-richBlack-200">
+            <p className="mt-2 max-w-[200px] text-center text-sm text-richBlack-700">
               Drag and drop an {!video ? "image" : "video"}, or click to{" "}
-              <span className="font-semibold text-yellow-50">Browse</span> a
+              <span className="font-semibold text-[#208486]">Browse</span> a
               file
             </p>
-            <ul className="mt-10 flex list-disc justify-between space-x-12 text-center  text-xs text-richBlack-200">
+            <ul className="mt-10 flex list-disc justify-between space-x-12 text-center  text-xs text-richBlack-700">
               <li>Aspect ratio 16:9</li>
               <li>Recommended size 1024x576</li>
             </ul>
@@ -114,7 +114,7 @@ export default function Upload({
         )}
       </div>
       {errors[id] && (
-        <span className="ml-2 text-xs tracking-wide text-pink-200">
+        <span className="ml-2 text-xs tracking-wide text-[#20B486]">
           {label} is required
         </span>
       )}

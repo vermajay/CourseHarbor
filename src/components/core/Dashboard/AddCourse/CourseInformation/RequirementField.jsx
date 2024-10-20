@@ -37,19 +37,19 @@ const RequirementField = ({label, id, register, errors, setValue}) => {
     <div className='flex flex-col items-start gap-2'>
         <label htmlFor={id}>{label}<sup className='text-pink-200'> *</sup></label>
         <input
-            className='bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none w-full'
+            className='bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-none w-full'
             id={id}
             value={requirement}
             onChange={(e)=>setRequirement(e.target.value)}
         />
         {
             errors[id] && (
-                <span className='text-xs -mt-1 text-yellow-50'>
+                <span className='text-xs -mt-1 text-[#20B486]'>
                     {label} are required
                 </span>
             )
         }
-        <button onClick={handleAddRequirement} type='button' className='font-semibold text-base text-yellow-50'>
+        <button onClick={handleAddRequirement} type='button' className='font-semibold text-base text-[#20B486]'>
             Add
         </button>
         {
@@ -60,7 +60,7 @@ const RequirementField = ({label, id, register, errors, setValue}) => {
                             <li key={index} className='flex items-center gap-2'>
                                 <span>{requirement}</span>
                                 <button onClick={()=>handleRemoveRequirement(index)} type='button' 
-                                className='text-xs text-richBlack-300'>
+                                className='text-xs text-richBlack-500'>
                                     clear
                                 </button>
                             </li>

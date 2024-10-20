@@ -28,7 +28,7 @@ const EditProfile = () => {
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
 
-      <div className='flex flex-col gap-6 py-8 px-12 mb-8 rounded-lg text-richBlack-5 text-sm leading-[22px] border border-richBlack-700 bg-richBlack-800'>
+      <div className='flex flex-col gap-6 py-8 px-12 mb-8 rounded-lg text-black text-sm leading-[22px] bg-white'>
 
         <div className='font-semibold text-lg'>Profile Information</div>
 
@@ -37,7 +37,7 @@ const EditProfile = () => {
           {/* first name  */}
           <div className='flex flex-col gap-2 lg:w-[48%]'>
             <label htmlFor='firstName'>First Name</label>
-            <input className='w-full bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+            <input className='w-full bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
               type='text'
               id='firstName'
               placeholder="Enter first name"
@@ -46,7 +46,7 @@ const EditProfile = () => {
             />
             {
               errors.firstName && (
-                <span className='text-sm -mt-1 text-yellow-50'>
+                <span className='text-sm -mt-1 text-[#208486]'>
                   Please enter your first name.
                 </span>
               )
@@ -55,7 +55,7 @@ const EditProfile = () => {
           {/* last name  */}
           <div className='flex flex-col gap-2 lg:w-[48%]'>
             <label htmlFor='lastName'>Last Name</label>
-            <input className='w-full bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+            <input className='w-full bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
               type='text'
               id='lastName'
               placeholder="Enter last name"
@@ -64,7 +64,7 @@ const EditProfile = () => {
             />
             {
               errors.lastName && (
-                <span className='text-sm -mt-1 text-yellow-50'>
+                <span className='text-sm -mt-1 text-[#208486]'>
                   Please enter your last name.
                 </span>
               )
@@ -77,7 +77,7 @@ const EditProfile = () => {
           {/* date of birth */}
           <div className='flex flex-col gap-2 lg:w-[48%]'>
             <label htmlFor='dateOfBirth'>Date of Birth</label>
-            <input className='w-full bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+            <input className='w-full bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
               type='date'
               id='dateOfBirth'
               {...register("dateOfBirth", {
@@ -94,7 +94,7 @@ const EditProfile = () => {
             />
             {
               errors.dateOfBirth && (
-                <span className='text-sm -mt-1 text-yellow-50'>
+                <span className='text-sm -mt-1 text-[#208486]'>
                   {errors.dateOfBirth.message}
                 </span>
               )
@@ -103,7 +103,7 @@ const EditProfile = () => {
           {/* gender */}
           <div className='flex flex-col gap-2 lg:w-[48%]'>
             <label htmlFor='gender'>Gender</label>
-            <select className='w-full bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+            <select className='w-full bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
               type='text'
               id='gender'
               placeholder="Enter last name"
@@ -122,7 +122,7 @@ const EditProfile = () => {
             </select>
             {
               errors.gender && (
-                <span className='text-sm -mt-1 text-yellow-50'>
+                <span className='text-sm -mt-1 text-[#208486]'>
                   {errors.gender.message}
                 </span>
               )
@@ -135,7 +135,7 @@ const EditProfile = () => {
           {/* contact number */}
           <div className='flex flex-col gap-2 lg:w-[48%]'>
             <label htmlFor='contactNumber'>Contact Number</label>
-            <input className='w-full bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+            <input className='w-full bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
               type='number'
               id='contactNumber'
               placeholder="Enter Contact Number"
@@ -157,7 +157,7 @@ const EditProfile = () => {
             />
             {
               errors.contactNumber && (
-                <span className='text-sm -mt-1 text-yellow-50'>
+                <span className='text-sm -mt-1 text-[#208486]'>
                   {errors.contactNumber.message}
                 </span>
               )
@@ -166,7 +166,7 @@ const EditProfile = () => {
           {/* about */}
           <div className='flex flex-col gap-2 lg:w-[48%]'>
             <label htmlFor='about'>About</label>
-            <input className='w-full bg-richBlack-700 rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+            <input className='w-full bg-richBlack-25 text-black rounded-[0.5rem] p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
               type='text'
               id='about'
               placeholder='Enter Bio Details'
@@ -175,7 +175,7 @@ const EditProfile = () => {
             />
             {
               errors.about && (
-                <span className='text-sm -mt-1 text-yellow-50'>
+                <span className='text-sm -mt-1 text-[#208486]'>
                   Please enter your About.
                 </span>
               )
@@ -187,7 +187,7 @@ const EditProfile = () => {
 
       <div className='flex justify-end gap-2'>
           <button onClick={()=>navigate("../my-profile")}
-          className='cursor-pointer rounded-md bg-richBlack-700 py-[8px] px-[20px] font-semibold text-richBlack-50'>
+          className='cursor-pointer rounded-md bg-richBlack-600 py-[8px] px-[20px] font-semibold text-white'>
             Cancel
           </button>
           <IconBtn

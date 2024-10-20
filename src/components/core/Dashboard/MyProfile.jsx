@@ -11,12 +11,12 @@ const MyProfile = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='flex flex-col gap-10 text-richBlack-5'>
+    <div className='flex flex-col gap-10'>
 
-      <h1 className='font-medium text-3xl leading-10 mb-3'>My Profile</h1>
+      <h1 className='font-semibold text-4xl mb-2 text-[#208486]'>My Profile</h1>
 
       {/* section 1 */}
-      <div className='flex items-center justify-between py-8 px-12 rounded-lg border border-richBlack-700 bg-richBlack-800'>
+      <div className='flex items-center justify-between py-8 px-12 rounded-lg bg-white text-black'>
 
         <div className='flex items-center gap-4'>
 
@@ -24,10 +24,10 @@ const MyProfile = () => {
             <img src={user?.image} alt='userImage' className='h-[78px] w-[78px] rounded-full aspect-square object-cover'></img>
           </div>
           <div className='flex flex-col gap-1'>
-            <div className='flex items-center font-semibold text-lg'>
+            <div className='flex items-center font-semibold text-2xl'>
               {user?.firstName + " " + user?.lastName}
             </div>
-            <div className='text-richBlack-300 text-sm leading-[22px]'>{user?.email}</div>
+            <div>{user?.email}</div>
           </div>
 
         </div>
@@ -43,10 +43,10 @@ const MyProfile = () => {
       </div>
 
       {/* section 2 */}
-      <div className='flex flex-col gap-7 py-8 px-12 rounded-lg border border-richBlack-700 bg-richBlack-800'>
+      <div className='flex flex-col gap-7 py-8 px-12 rounded-lg bg-white text-black'>
 
         <div className='flex items-center justify-between'>
-          <div className='font-semibold text-lg'>About</div>
+          <div className='font-semibold text-2xl'>About</div>
           {/* edit button */}
           <IconBtn
             text="Edit"
@@ -56,17 +56,17 @@ const MyProfile = () => {
           </IconBtn>
         </div>
 
-        <div className={`${!user?.additionalDetails?.about && 'text-richBlack-400'} font-medium text-base`}>
+        <div className={`${!user?.additionalDetails?.about && 'text-black'} font-medium`}>
           {user?.additionalDetails?.about ?? "Write Something About Yourself"}
         </div>
 
       </div>
 
       {/* section 3 */}
-      <div className='flex flex-col gap-8 py-8 px-12 rounded-lg border border-richBlack-700 bg-richBlack-800'>
+      <div className='flex flex-col gap-8 py-8 px-12 rounded-lg bg-white text-black'>
 
         <div className='flex items-center justify-between'>
-          <div className='font-semibold text-lg'>Personal Details</div>
+          <div className='font-semibold text-2xl'>Personal Details</div>
           {/* edit button */}
           <IconBtn
             text="Edit"
@@ -82,17 +82,17 @@ const MyProfile = () => {
 
             <div className='flex flex-col gap-1'>
               <div className='text-richBlack-600 text-sm leading-[22px]'>First Name</div>
-              <div className='font-medium text-sm'>{user?.firstName}</div>
+              <div className='font-medium'>{user?.firstName}</div>
             </div>
 
             <div className='flex flex-col gap-1'>
               <div className='text-richBlack-600 text-sm leading-[22px]'>Email</div>
-              <div className='font-medium text-sm'>{user?.email}</div>
+              <div className='font-medium'>{user?.email}</div>
             </div>
 
             <div className='flex flex-col gap-1'>
               <div className='text-richBlack-600 text-sm leading-[22px]'>Gender</div>
-              <div className='font-medium text-sm'>{user?.additionalDetails?.gender ?? "Add Gender"}</div>
+              <div className='font-medium'>{user?.additionalDetails?.gender ?? "Add Gender"}</div>
             </div>
 
           </div>
@@ -101,17 +101,17 @@ const MyProfile = () => {
 
             <div className='flex flex-col gap-1'>
               <div className='text-richBlack-600 text-sm leading-[22px]'>Last Name</div>
-              <div className='font-medium text-sm'>{user?.lastName}</div>
+              <div className='font-medium'>{user?.lastName}</div>
             </div>
 
             <div className='flex flex-col gap-1'>
               <div className='text-richBlack-600 text-sm leading-[22px]'>Phone Number</div>
-              <div className='font-medium text-sm'>{user?.additionalDetails?.contactNumber ?? "Add Contact Number"}</div>
+              <div className='font-medium'>{user?.additionalDetails?.contactNumber ?? "Add Contact Number"}</div>
             </div>
 
             <div className='flex flex-col gap-1'>
               <div className='text-richBlack-600 text-sm leading-[22px]'>Date Of Birth</div>
-              <div className='font-medium text-sm'>
+              <div className='font-medium'>
                 {user?.additionalDetails?.dateOfBirth ? formattedDate(user?.additionalDetails?.dateOfBirth) : "Add Date Of Birth"}
               </div>
             </div>

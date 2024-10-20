@@ -4,12 +4,12 @@ export default function AddCourse(){
     return(
         <div className="flex">
             <div>
-                <h1 className="text-richBlack-5 font-medium text-4xl mb-12">Add Course</h1>
+                <h1 className="text-[#208486] font-semibold text-4xl mb-12">Add Course</h1>
                 <div className='flex flex-col items-center w-[37rem]'>
                     <RenderSteps/>
                 </div>
             </div>
-            <div className="fixed top-[6rem] left-[63rem] flex flex-col gap-6 p-6 rounded-lg w-[25rem] border border-richBlack-700 bg-richBlack-800 text-richBlack-5">
+            <div className="fixed top-[6rem] left-[63rem] flex flex-col gap-6 p-6 rounded-lg w-[25rem] bg-white text-richBlack-700">
                 <div className="text-lg font-semibold">⚡Course Upload Tips</div>
                 <ul className="flex flex-col gap-4 list-disc text-xs font-medium pl-6">
                     <li>Set the Course Price option or make it free.</li>

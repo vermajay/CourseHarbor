@@ -61,7 +61,7 @@ const ContactUsForm = () => {
     }
  
   return (
-    <form onSubmit={handleSubmit(submitContactForm)} className='text-richBlack-5 text-sm leading-[22px] flex flex-col gap-7
+    <form onSubmit={handleSubmit(submitContactForm)} className='text-black text-sm leading-[22px] flex flex-col gap-7
      max-w-xl'>
       
         {/* name */}
@@ -70,7 +70,7 @@ const ContactUsForm = () => {
             {/* firstname */}
             <div className='flex flex-col gap-2 w-[48%]'>
                 <label htmlFor='firstname'>First Name</label>
-                <input className='w-full bg-richBlack-800 rounded-[0.5rem] text-richBlack-200 p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+                <input className='w-full bg-white rounded-[0.5rem] text-black p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-[#1A9068]'
                     type='text'
                     id='firstname'
                     placeholder='Enter first name'
@@ -78,7 +78,7 @@ const ContactUsForm = () => {
                 />
                 {
                     errors.firstname && (
-                        <span>
+                        <span className='text-[#20B486]'>
                             Please enter your name
                         </span>
                     )
@@ -88,7 +88,7 @@ const ContactUsForm = () => {
             {/* lastname */}
             <div className='flex flex-col gap-2 w-[48%]'>
                 <label htmlFor='lastname'>Last Name</label>
-                <input className='w-full bg-richBlack-800 rounded-[0.5rem] text-richBlack-200 p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+                <input className='w-full bg-white rounded-[0.5rem] text-black p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-[#1A9068]'
                     type='text'
                     id='lastname'
                     placeholder='Enter last name'
@@ -101,7 +101,7 @@ const ContactUsForm = () => {
         {/* email */}
         <div className='flex flex-col gap-2'>
             <label htmlFor='email'>Email Address</label>
-            <input className='w-full bg-richBlack-800 rounded-[0.5rem] text-richBlack-200 p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+            <input className='w-full bg-white rounded-[0.5rem] text-black p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-[#1A9068]'
                 type='email'
                 id='email'
                 placeholder='Enter email address'
@@ -109,7 +109,7 @@ const ContactUsForm = () => {
             />
             {
                 errors.email && (
-                    <span>
+                    <span className='text-[#20B486]'>
                         Please enter your email
                     </span>
                 )
@@ -124,7 +124,7 @@ const ContactUsForm = () => {
             <div className='flex gap-5'>
 
                 {/* dropdown */}
-                <select className='w-[15%] bg-richBlack-800 rounded-[0.5rem] text-richBlack-200 p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+                <select className='w-[15%] bg-white rounded-[0.5rem] text-black p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-[#1A9068]'
                 {...register("countrycode", {required:true})}
                 >
                     <option value="+91">+91 - India</option>
@@ -138,7 +138,7 @@ const ContactUsForm = () => {
                 </select>
 
                 {/* phonenumber */}
-                <input className='w-[81%] bg-richBlack-800 rounded-[0.5rem] text-richBlack-200 p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+                <input className='w-[81%] bg-white rounded-[0.5rem] text-black p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-[#1A9068]'
                     type='number'
                     id='phonenumber'
                     placeholder='12345 67890'
@@ -156,7 +156,7 @@ const ContactUsForm = () => {
 
             {
                 errors.phoneNo && (
-                    <span>
+                    <span className='text-[#20B486]'>
                         {errors.phoneNo.message}
                     </span>
                 )
@@ -167,7 +167,7 @@ const ContactUsForm = () => {
         {/* message */}
         <div className='flex flex-col gap-2'>
             <label htmlFor='message'>Message</label>
-            <textarea className='w-full bg-richBlack-800 rounded-[0.5rem] text-richBlack-200 p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base'
+            <textarea className='w-full bg-white rounded-[0.5rem] text-black p-[12px] drop-shadow-[0_2px_rgba(255,255,255,0.25)] font-medium text-base focus:outline-[#1A9068]'
                 id='message'
                 placeholder='Enter message'
                 rows={7}
@@ -176,7 +176,7 @@ const ContactUsForm = () => {
             />
             {
                 errors.message && (
-                    <span>
+                    <span className='text-[#20B486]'>
                         Please enter your message
                     </span>
                 )
@@ -184,7 +184,7 @@ const ContactUsForm = () => {
         </div>
 
         {/* submit button */}
-        <button className={`${loading ? 'bg-richBlack-800 cursor-wait' : 'bg-yellow-50 text-black hover:shadow-none hover:scale-95 transition-all duration-200'} shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] text-center text-[16px] px-6 py-3 rounded-md font-bold w-full`}>
+        <button className={`${loading ? 'bg-[#20B486] cursor-wait' : 'bg-[#20B486] hover:shadow-none hover:scale-95 transition-all duration-200'} text-white shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] text-center text-[16px] px-6 py-3 rounded-md font-bold w-full`}>
             Send Message
         </button>
 

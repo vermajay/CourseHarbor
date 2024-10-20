@@ -57,16 +57,16 @@ export default function InstructorChart({ courses }) {
   }
 
   return (
-    <div className="flex flex-1 flex-col gap-y-4 rounded-md bg-richBlack-800 p-6">
-      <p className="text-lg font-bold text-richBlack-5">Visualize</p>
+    <div className="flex flex-1 flex-col gap-y-4 rounded-md bg-white p-6">
+      <p className="text-lg font-bold text-black">Visualize</p>
       <div className="space-x-4 font-semibold">
         {/* Button to switch to the "students" chart */}
         <button
           onClick={() => setCurrChart("students")}
           className={`rounded-sm p-1 px-3 transition-all duration-200 ${
             currChart === "students"
-              ? "bg-richBlack-700 text-yellow-50"
-              : "text-yellow-400"
+              ? "bg-[#20B486] text-white"
+              : "text-black"
           }`}
         >
           Students
@@ -76,8 +76,8 @@ export default function InstructorChart({ courses }) {
           onClick={() => setCurrChart("income")}
           className={`rounded-sm p-1 px-3 transition-all duration-200 ${
             currChart === "income"
-              ? "bg-richBlack-700 text-yellow-50"
-              : "text-yellow-400"
+              ? "bg-[#20B486] text-white"
+              : "text-black"
           }`}
         >
           Income
