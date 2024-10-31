@@ -31,13 +31,13 @@ export default function RenderCartCourses() {
                 {course?.category?.name}
               </p>
               <div className="flex items-center gap-2">
-                <span className="text-[#208486]">4.5</span>
+                <span className="text-[#1F8586]">4.5</span>
                 <ReactStars
                   count={5}
                   value={course?.ratingAndReviews?.length}
                   size={20}
                   edit={false}
-                  activeColor="#ffd700"
+                  activeColor="#1F8586"
                   emptyIcon={<FaStar />}
                   fullIcon={<FaStar />}
                 />
